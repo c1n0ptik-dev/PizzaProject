@@ -8,7 +8,7 @@ while True:
     if user_input == "1":
         ser.write("LedOn".encode())  # Send command to turn LED on print("Red LED turned ON")
     elif user_input == "2":
-        ser.write("Led Off".encode())  # Send command to turn LED off print("Red LED turned OFF")
+        ser.write("LedOff".encode())  # Send command to turn LED off print("Red LED turned OFF")
     elif user_input.lower() == "q":
         print("Exiting program.")
         break
