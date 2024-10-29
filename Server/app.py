@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__, template_folder='templates')
 
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('website/index.html')
 
 
 @app.route('/cashier', methods=['GET'])
-def main():
-    return render_template('cashier.html')
+def cashier():
+    return render_template('cashier-kitchen/cashier.html')
 
 
 @app.route('/send_data', methods=['POST'])
