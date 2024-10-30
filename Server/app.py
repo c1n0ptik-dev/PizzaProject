@@ -1,14 +1,9 @@
 from flask import Flask, render_template, request
 import sqlite3
+from datetime import datetime
+
 
 app = Flask(__name__, template_folder='templates')
-
-
-def connect_database():
-    con = sqlite3.connect("database/database.db")
-    cur = con.cursor()
-    print("Database has Successfully Connected!")
-
 
 @app.route('/')
 def main():
@@ -40,6 +35,19 @@ def send_data():
     pizza = request.form.get('pizza')
     additional_info = request.form.get('additional_info')
     toppings = request.form.get('toppings')
+
+    # Current timestamp
+    order_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # Insert data into the database
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
+        VALUES (?, ?, ?, ?)
+    ''', (pizza, additional_info, toppings, order_time))
+    conn.commit()
+    conn.close()
 
     # Print the data to the console
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
