@@ -16,6 +16,7 @@
       <thead>
       <tr>
         <th>Order Number</th>
+        <th>Time</th>
         <th>Pizza Names</th>
         <th>Addition</th>
         <th>Toppings</th>
@@ -26,12 +27,13 @@
       {% for row in data %}
       <tr>
         <td style="text-align: center">{{ row[0] }}</td>
+        <td style="text-align: center">{{ row[4] }}</td>
         <td>{{ row[1] }}</td>
         <td>{{ row[2] }}</td>
         <td>{{ row[3] }}</td>
         <td>    <form method="post">
-          <button type="submit" name="start" value="Button 1">Start</button>
-          <button type="submit" name="ready" value="Button 2">Ready</button>
+          <button type="submit" name="start" value="pressed">Start</button>
+          <button type="submit" name="ready" value="pressed">Ready</button>
         </form></td>
       </tr>
       {% endfor %}

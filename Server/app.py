@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
 from datetime import datetime
+import requests
+import time
+import serial
+
 
 app = Flask(__name__, template_folder='templates')
+ser = serial.Serial("COM3", baudrate=9600, timeout=1)
 
 
 def get_data_from_db():
@@ -26,6 +31,25 @@ def main():
 def orders():
     if 'start' in request.form:
         start_button = request.form.get('start')
+
+        if start_button == 'pressed':
+
+            order_number = 1
+            command = f"Order{order_number}"
+            ser.write((command + "\n").encode())
+
+            print(f"Cooking started for Order {order_number}. Waiting for completion...")
+
+            while True:
+                if ser.in_waiting > 0:
+                    response = ser.readline().decode().strip()
+                    if response == f"Order {order_number} finished":
+                        print(f"Order {order_number} is ready! Green LED is now ON.")
+                        break
+                time.sleep(1)
+            time.sleep(1)
+            start_button = ''
+
         return redirect("/orders", code=302)
 
     elif 'ready' in request.form:
@@ -49,7 +73,7 @@ def send_data():
     toppings = request.form.get('toppings')
 
     # Current timestamp
-    order_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    order_time = datetime.now().strftime('%H:%M:%S')
 
     # Insert data into the database
     conn = sqlite3.connect('database/database.db')

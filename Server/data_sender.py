@@ -1,8 +1,8 @@
 import serial
 import time
 
-
-ser = serial.Serial("COM3", baudrate=9600, timeout=1)
+# Initialize serial communication
+ser = serial.Serial("COM", baudrate=9600, timeout=1)
 
 while True:
     # Prompt user for input
@@ -14,9 +14,11 @@ while True:
     elif user_input.isdigit():
         order_number = user_input
         command = f"Order{order_number}"
-        ser.write((command + "\n").encode())
+        ser.write((command + "\n").encode())  # Send the command with order number to Arduino
+
         print(f"Cooking started for Order {order_number}. Waiting for completion...")
 
+        # Wait for response from Arduino
         while True:
             if ser.in_waiting > 0:
                 response = ser.readline().decode().strip()
@@ -27,4 +29,5 @@ while True:
     else:
         print("Invalid input, please enter a numeric order number or 'q' to quit.")
 
+# Close the serial connection
 ser.close()
