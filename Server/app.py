@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 from datetime import datetime
 
@@ -52,7 +52,7 @@ def send_data():
     # Print the data to the console
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
 
-    return "Data received!"  # Response for form submission
+    return redirect("/cashier", code=302) # Response for form submission
 
 
 if __name__ == "__main__":
