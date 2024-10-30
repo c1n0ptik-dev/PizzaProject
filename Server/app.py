@@ -4,6 +4,12 @@ import sqlite3
 app = Flask(__name__, template_folder='templates')
 
 
+def connect_database():
+    con = sqlite3.connect("database/database.db")
+    cur = con.cursor()
+    print("Database has Successfully Connected!")
+
+
 @app.route('/')
 def main():
     return render_template('website/index.html')
