@@ -5,9 +5,7 @@ import requests
 import time
 import serial
 
-
 app = Flask(__name__, template_folder='templates')
-ser = serial.Serial("COM3", baudrate=9600, timeout=1)
 
 
 def get_data_from_db():
@@ -36,10 +34,11 @@ def orders():
 
             order_number = 1
             command = f"Order{order_number}"
-            ser.write((command + "\n").encode())
+            ser.write((command + "\n").encode())  # Send the command with order number to Arduino
 
             print(f"Cooking started for Order {order_number}. Waiting for completion...")
 
+            # Wait for response from Arduino
             while True:
                 if ser.in_waiting > 0:
                     response = ser.readline().decode().strip()
@@ -47,13 +46,19 @@ def orders():
                         print(f"Order {order_number} is ready! Green LED is now ON.")
                         break
                 time.sleep(1)
-            time.sleep(1)
             start_button = ''
 
         return redirect("/orders", code=302)
 
     elif 'ready' in request.form:
-        ready_button = request.form.get('ready')
+        start_button = request.form.get('ready')
+        if start_button == 'pressed':
+            id = request.form.get('item_id')
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Orders WHERE OrderId=?", (id,))
+            conn.commit()
+
         return redirect("/orders", code=302)
 
     orders = get_data_from_db()

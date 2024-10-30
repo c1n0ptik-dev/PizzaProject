@@ -2,7 +2,7 @@ import serial
 import time
 
 # Initialize serial communication
-ser = serial.Serial("COM", baudrate=9600, timeout=1)
+ser = serial.Serial("COM4", baudrate=9600, timeout=1)
 
 while True:
     # Prompt user for input
