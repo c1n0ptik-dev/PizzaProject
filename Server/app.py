@@ -22,9 +22,16 @@ def main():
     return render_template('website/index.html')
 
 
-@app.route('/orders')
+@app.route('/orders', methods=['GET', 'POST'])
 def orders():
-    global orders
+    if 'start' in request.form:
+        start_button = request.form.get('start')
+        return redirect("/orders", code=302)
+
+    elif 'ready' in request.form:
+        ready_button = request.form.get('ready')
+        return redirect("/orders", code=302)
+
     orders = get_data_from_db()
     return render_template('cashier-kitchen/orders.html', data=orders)
 
@@ -32,7 +39,6 @@ def orders():
 @app.route('/cashier', methods=['GET'])
 def cashier():
     return render_template('cashier-kitchen/cashier.html')
-
 
 
 @app.route('/send_data', methods=['POST'])

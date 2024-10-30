@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/static/css/orders.css" beforeDir="false" afterPath="$PROJECT_DIR$/Server/static/css/orders.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/templates/cashier-kitchen/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/cashier-kitchen/orders.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730202518471</updated>
       <workItem from="1730202519500" duration="32000" />
-      <workItem from="1730275890867" duration="4379000" />
+      <workItem from="1730275890867" duration="8325000" />
     </task>
     <servers />
   </component>
@@ -94,7 +95,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$data_sender.coverage" NAME="data_sender Coverage Results" MODIFIED="1730209962949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
-    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730280537116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730284654927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$sql.coverage" NAME="sql Coverage Results" MODIFIED="1730209019131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/databases" />
   </component>
 </project>
