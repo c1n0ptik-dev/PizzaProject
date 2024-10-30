@@ -7,13 +7,10 @@ app = Flask(__name__, template_folder='templates')
 def main():
     return render_template('website/index.html')
 
-<<<<<<< HEAD
 @app.route('/orders')
 def orders():
     return render_template('cashier-kitchen/orders.html')
 
-=======
->>>>>>> eebd83a3b9e6398786e6457a1405ad5e4a3f78fd
 
 @app.route('/cashier', methods=['GET'])
 def cashier():
