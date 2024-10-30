@@ -1,33 +1,23 @@
 import serial
 import time
 
-# Initialize serial communication
+# Initialize serial communication with Arduino
 ser = serial.Serial("COM4", baudrate=9600, timeout=1)
+time.sleep(2)  # Allow time for Arduino to initialize
 
+# Send the command to start the sequence
+ser.write("StartSequence\n".encode())
+print("Command sent: StartSequence")
+
+# Wait for response from Arduino
 while True:
-    # Prompt user for input
-    user_input = input("Enter order number to start cooking (or 'q' to quit): ")
+    if ser.in_waiting > 0:
+        response = ser.readline().decode().strip()
+        print("Arduino:", response)
 
-    if user_input.lower() == "q":
-        print("Exiting program.")
-        break
-    elif user_input.isdigit():
-        order_number = user_input
-        command = f"Order{order_number}"
-        ser.write((command + "\n").encode())  # Send the command with order number to Arduino
-
-        print(f"Cooking started for Order {order_number}. Waiting for completion...")
-
-        # Wait for response from Arduino
-        while True:
-            if ser.in_waiting > 0:
-                response = ser.readline().decode().strip()
-                if response == f"Order {order_number} finished":
-                    print(f"Order {order_number} is ready! Green LED is now ON.")
-                    break
-            time.sleep(1)
-    else:
-        print("Invalid input, please enter a numeric order number or 'q' to quit.")
+        # Break if the sequence is finished
+        if response == "Sequence finished":
+            break
 
 # Close the serial connection
 ser.close()

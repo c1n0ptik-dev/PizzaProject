@@ -20,6 +20,26 @@ def get_data_from_db():
     return rows
 
 
+def arduino():
+    ser = serial.Serial("COM4", baudrate=9600, timeout=1)
+    time.sleep(2)  # Allow time for Arduino to initialize
+
+    # Send the command to start the sequence
+    ser.write("StartSequence\n".encode())
+
+    # Wait for response from Arduino
+    while True:
+        if ser.in_waiting > 0:
+            response = ser.readline().decode().strip()
+
+            # Break if the sequence is finished
+            if response == "Sequence finished":
+                break
+
+    # Close the serial connection
+    ser.close()
+
+
 @app.route('/')
 def main():
     return render_template('website/index.html')
@@ -31,21 +51,7 @@ def orders():
         start_button = request.form.get('start')
 
         if start_button == 'pressed':
-
-            order_number = 1
-            command = f"Order{order_number}"
-            ser.write((command + "\n").encode())  # Send the command with order number to Arduino
-
-            print(f"Cooking started for Order {order_number}. Waiting for completion...")
-
-            # Wait for response from Arduino
-            while True:
-                if ser.in_waiting > 0:
-                    response = ser.readline().decode().strip()
-                    if response == f"Order {order_number} finished":
-                        print(f"Order {order_number} is ready! Green LED is now ON.")
-                        break
-                time.sleep(1)
+            arduino()
             start_button = ''
 
         return redirect("/orders", code=302)
@@ -72,15 +78,12 @@ def cashier():
 
 @app.route('/send_data', methods=['POST'])
 def send_data():
-    # Retrieve data from the form
     pizza = request.form.get('pizza')
     additional_info = request.form.get('additional_info')
     toppings = request.form.get('toppings')
 
-    # Current timestamp
     order_time = datetime.now().strftime('%H:%M:%S')
 
-    # Insert data into the database
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute(''' 

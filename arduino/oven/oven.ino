@@ -1,29 +1,38 @@
-int red_light = 4;
-int green_light = 5;
-int blue_light = 3;
-int button = 8;
-
-int order_state = 0;
+const int redLedPin = 4;    
+const int greenLedPin = 5; 
+const long delayTime = 10000; 
 
 void setup() {
-  pinMode(red_light, OUTPUT);
-  pinMode(green_light, OUTPUT);
-  pinMode(button, INPUT_PULLUP);
+  Serial.begin(9600);  
+  pinMode(redLedPin, OUTPUT);
+  pinMode(greenLedPin, OUTPUT);
 
-  //serial communication
-  Serial.begin(9600);
+
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(greenLedPin, LOW);
 }
 
 void loop() {
-  String cmd;
+  if (Serial.available() > 0) {
+    String command = Serial.readStringUntil('\n'); 
 
-  if (Serial.available()){
-    cmd = Serial.readStringUntil("\n");
-    
-    if (cmd == "LedOn") {
-      digitalWrite(red_light, HIGH);
-    } else if (cmd == "LedOff") {
-      digitalWrite(red_light, LOW);
+    if (command == "StartSequence") {
+      Serial.println("Sequence started");
+
+      // Turn on the red LED
+      digitalWrite(redLedPin, HIGH);
+
+      // Wait for 10 seconds
+      delay(delayTime);
+
+      // Turn off the red LED and turn on the green LED
+      digitalWrite(redLedPin, LOW);
+      digitalWrite(greenLedPin, HIGH);
+
+      delay(5000);
+
+      digitalWrite(greenLedPin, LOW);
+      Serial.println("Sequence finished");
     }
   }
 }
