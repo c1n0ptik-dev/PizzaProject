@@ -4,18 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitchen Orders</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="../../static/css/orders.css" />
     <!-- Assuming the CSS is in this path -->
   </head>
   <body>
     <div class="container">
       <h1>Kitchen Orders</h1>
-=======
     <link rel="stylesheet" href="../../static/css/orders.css">
-</head>
-<body>
->>>>>>> eebd83a3b9e6398786e6457a1405ad5e4a3f78fd
 
       <div class="main-table-container">
         <table class="order-table">
@@ -24,46 +19,22 @@
               <th>Order Number</th>
               <th>Pizza Names</th>
               <th>Addition</th>
-              <th>Toppings</th>
-              <th>Progress</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>001</td>
-              <td>Margherita, Pepperoni</td>
-              <td>Extra Cheese</td>
-              <td>Mushrooms, Olives</td>
+              {% for row in data %}
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+              {% endfor %}
               <td>
                 <button onclick="startProgress(this)">Start</button>
                 <div class="progress">
                   <div class="progress-value"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>002</td>
-              <td>Hawaiian</td>
-              <td>Garlic Sauce</td>
-              <td>Onions, Bell Peppers</td>
-              <td>
-                <button onclick="startProgress(this)">Start</button>
-                <div class="progress">
-                  <div class="progress-value"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>003</td>
-              <td>Veggie Supreme</td>
-              <td>Extra Cheese</td>
-              <td>Spinach, Cherry Tomatoes, Artichokes</td>
-              <td>
-                <div>
-                  <button onclick="startProgress(this)">Start</button>
-                  <div class="progress">
-                    <div class="progress-value"></div>
-                  </div>
                 </div>
               </td>
             </tr>

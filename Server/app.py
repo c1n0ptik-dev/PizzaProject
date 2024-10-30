@@ -2,8 +2,20 @@ from flask import Flask, render_template, request, redirect
 import sqlite3
 from datetime import datetime
 
-
 app = Flask(__name__, template_folder='templates')
+
+
+def get_data_from_db():
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM Orders")
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
+
 
 @app.route('/')
 def main():
@@ -12,7 +24,10 @@ def main():
 
 @app.route('/orders')
 def orders():
-    return render_template('cashier-kitchen/orders.html')
+    global orders
+    orders = get_data_from_db()
+    return render_template('cashier-kitchen/orders.html', data=orders)
+
 
 @app.route('/cashier', methods=['GET'])
 def cashier():
@@ -42,7 +57,7 @@ def send_data():
     # Insert data into the database
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
-    cursor.execute('''
+    cursor.execute(''' 
         INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
         VALUES (?, ?, ?, ?)
     ''', (pizza, additional_info, toppings, order_time))
