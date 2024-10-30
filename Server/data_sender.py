@@ -1,12 +1,8 @@
 import serial
 import time
 
-<<<<<<< HEAD
-# Initialize serial communication
+
 ser = serial.Serial("COM3", baudrate=9600, timeout=1)
-=======
-ser = serial.Serial("COM6", baudrate=9600, timeout=1)
->>>>>>> 7cef3fe2229c62ad68dd5b88b9f23eedfc41787c
 
 while True:
     # Prompt user for input

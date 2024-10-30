@@ -13,6 +13,7 @@ h1 {
 }
 
 .order-table {
+<<<<<<< HEAD
   flex: 1;
   overflow-y: auto;
   border-collapse: collapse;
@@ -22,6 +23,16 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Rounded corners for the table */
   overflow: hidden; /* Ensures that rounded corners are applied correctly */
+=======
+    flex: 1;
+    border-collapse: collapse;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 1500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+>>>>>>> eebd83a3b9e6398786e6457a1405ad5e4a3f78fd
 }
 
 .order-table th,
