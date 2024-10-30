@@ -4,14 +4,17 @@ import sqlite3
 app = Flask(__name__, template_folder='templates')
 
 
+def connect_database():
+    con = sqlite3.connect("database/database.db")
+    cur = con.cursor()
+    print("Database has Successfully Connected!")
+
+
 @app.route('/')
 def main():
     return render_template('website/index.html')
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9196fa8d98c40501d7850fa9395047c0a2208ae6
 @app.route('/orders')
 def orders():
     return render_template('cashier-kitchen/orders.html')
