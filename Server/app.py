@@ -8,7 +8,10 @@ app = Flask(__name__, template_folder='templates')
 def main():
     return render_template('website/index.html')
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9196fa8d98c40501d7850fa9395047c0a2208ae6
 @app.route('/orders')
 def orders():
     return render_template('cashier-kitchen/orders.html')
