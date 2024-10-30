@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitchen Orders</title>
-    <link rel="stylesheet" href="../../static/css/orders.css"> <!-- Assuming the CSS is in this path -->
-</head>
-<body>
+    <link rel="stylesheet" href="../../static/css/orders.css" />
+    <!-- Assuming the CSS is in this path -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kitchen Orders</h1>
 
-<div class="container">
-    <h1>Kitchen Orders</h1>
-
-    <div class="main-table-container">
+      <div class="main-table-container">
         <table class="order-table">
-            <thead>
+          <thead>
             <tr>
-                <th>Order Number</th>
-                <th>Pizza Names</th>
-                <th>Addition</th>
-                <th>Toppings</th>
-                <th>Start the order</th>
+              <th>Order Number</th>
+              <th>Pizza Names</th>
+              <th>Addition</th>
+              <th>Toppings</th>
+              <th>Progress</th>
             </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
             <tr>
-                <td>001</td>
-                <td>Margherita, Pepperoni</td>
-                <td>Extra Cheese</td>
-                <td>Mushrooms, Olives</td>
-                <td>Button</td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Hawaiian</td>
-                <td>Garlic Sauce</td>
-                <td>Onions, Bell Peppers</td>
-                <td>Button</td>
+              <td>001</td>
+              <td>Margherita, Pepperoni</td>
+              <td>Extra Cheese</td>
+              <td>Mushrooms, Olives</td>
+              <td>
+                <button onclick="startProgress(this)">Start</button>
+                <div class="progress">
+                  <div class="progress-value"></div>
+                </div>
+              </td>
             </tr>
             <tr>
-                <td>003</td>
-                <td>Veggie Supreme</td>
-                <td>Extra Cheese</td>
-                <td>Spinach, Cherry Tomatoes, Artichokes</td>
-                <td>Button</td>
+              <td>002</td>
+              <td>Hawaiian</td>
+              <td>Garlic Sauce</td>
+              <td>Onions, Bell Peppers</td>
+              <td>
+                <button onclick="startProgress(this)">Start</button>
+                <div class="progress">
+                  <div class="progress-value"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>Veggie Supreme</td>
+              <td>Extra Cheese</td>
+              <td>Spinach, Cherry Tomatoes, Artichokes</td>
+              <td>
+                <div>
+                  <button onclick="startProgress(this)">Start</button>
+                  <div class="progress">
+                    <div class="progress-value"></div>
+                  </div>
+                </div>
+              </td>
             </tr>
             <!-- Additional rows can be added here -->
-            </tbody>
+          </tbody>
         </table>
+      </div>
     </div>
-</div>
 
-</body>
+    <script>
+      function startProgress(button) {
+        const progressBar =
+          button.nextElementSibling.querySelector(".progress-value");
+
+        progressBar.style.width = "0";
+        progressBar.style.animation = "none";
+
+        void progressBar.offsetWidth;
+        progressBar.style.animation = "load 3s forwards";
+      }
+    </script>
+  </body>
 </html>

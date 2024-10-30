@@ -1,56 +1,91 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 h1 {
-    text-align: center;
-    margin: 30px 0;
+  text-align: center;
+  margin: 30px 0;
 }
 
 .order-table {
-    flex: 1;
-    overflow-y: auto;
-    border-collapse: collapse;
-    margin: 10px auto;
-    width: 90%;
-    max-width: 1500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Rounded corners for the table */
-    overflow: hidden; /* Ensures that rounded corners are applied correctly */
+  flex: 1;
+  overflow-y: auto;
+  border-collapse: collapse;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 1500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures that rounded corners are applied correctly */
 }
 
-.order-table th, .order-table td {
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd;
+.order-table th,
+.order-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ddd;
 }
 
 .order-table th {
-    background-color: blue;
-    color: white;
+  background-color: blue;
+  color: white;
 }
 
 .order-table td {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .order-table th:first-child {
-    border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .order-table th:last-child {
-    border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .order-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .order-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 20px;
+  width: 200px;
+  margin-left: 10px;
+}
+
+.progress-value {
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: #100f0f;
+  height: 100%;
+  width: 0;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.anim_contrainer {
+  display: flex;
 }
