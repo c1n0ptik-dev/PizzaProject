@@ -41,6 +41,10 @@ def cashier():
     return render_template('cashier-kitchen/cashier.html')
 
 
+@app.route('/aboutus')
+def aboutus():
+    return render_template('website/aboutus.html')
+
 @app.route('/send_data', methods=['POST'])
 def send_data():
     # Retrieve data from the form
@@ -58,6 +62,7 @@ def send_data():
         INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
         VALUES (?, ?, ?, ?)
     ''', (pizza, additional_info, toppings, order_time))
+
     conn.commit()
     conn.close()
 
