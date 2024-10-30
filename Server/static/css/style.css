@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+body {
+  background-color: #f1f1f1;
+  font-family: "Inter", sans-serif;
+}
+a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.header_container {
+  display: flex;
+  font-size: 25px;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+.hero_section {
+  background-color: #008c45;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.offer_section {
+  background-color: #008c45;
+  display: flex;
+  justify-content: space-between;
+}
+.hero_img {
+  width: 650px;
+  height: 500px;
+}
