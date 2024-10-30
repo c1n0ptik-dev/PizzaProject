@@ -1,60 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kitchen Orders</title>
-    <link rel="stylesheet" href="../../static/css/orders.css" />
-    <!-- Assuming the CSS is in this path -->
-  </head>
-  <body>
-    <div class="container">
-      <h1>Kitchen Orders</h1>
-    <link rel="stylesheet" href="../../static/css/orders.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Orders</title>
+  <link rel="stylesheet" href="../../static/css/orders.css" />
+  <meta http-equiv="refresh" content="10">
+</head>
+<body>
+<div class="container">
+  <h1>Kitchen Orders</h1>
 
-      <div class="main-table-container">
-        <table class="order-table">
-          <thead>
-            <tr>
-              <th>Order Number</th>
-              <th>Pizza Names</th>
-              <th>Addition</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {% for row in data %}
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-              {% endfor %}
-              <td>
-                <button onclick="startProgress(this)">Start</button>
-                <div class="progress">
-                  <div class="progress-value"></div>
-                </div>
-              </td>
-            </tr>
-            <!-- Additional rows can be added here -->
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="main-table-container">
+    <table class="order-table">
+      <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Pizza Names</th>
+        <th>Addition</th>
+        <th>Toppings</th>
+        <th>Start</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for row in data %}
+      <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
 
-    <script>
-      function startProgress(button) {
-        const progressBar =
-          button.nextElementSibling.querySelector(".progress-value");
-
-        progressBar.style.width = "0";
-        progressBar.style.animation = "none";
-
-        void progressBar.offsetWidth;
-        progressBar.style.animation = "load 3s forwards";
-      }
-    </script>
-  </body>
+      </tr>
+      {% endfor %}
+      <!-- Additional rows can be added here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
 </html>

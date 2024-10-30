@@ -34,15 +34,6 @@ def cashier():
     return render_template('cashier-kitchen/cashier.html')
 
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
 
 @app.route('/send_data', methods=['POST'])
 def send_data():
@@ -67,7 +58,7 @@ def send_data():
     # Print the data to the console
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
 
-    return redirect("/cashier", code=302) # Response for form submission
+    return redirect("/cashier", code=302)  # Response for form submission
 
 
 if __name__ == "__main__":
