@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/static/css/overview.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/static/img/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/static/img/grapes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/static/img/veg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/templates/website/overwiev.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,7 @@
     &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/python_projects/week_5/pythonProject&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -92,7 +95,9 @@
       <workItem from="1730202519500" duration="32000" />
       <workItem from="1730275890867" duration="20263000" />
       <workItem from="1730316307647" duration="2629000" />
-      <workItem from="1730361355997" duration="6802000" />
+      <workItem from="1730361355997" duration="8319000" />
+      <workItem from="1730372869290" duration="98000" />
+      <workItem from="1730373067115" duration="2595000" />
     </task>
     <servers />
   </component>

@@ -46,8 +46,8 @@ def orders():
     if 'start' in request.form:
         start_button = request.form.get('start')
 
-        # if start_button == 'pressed':
-        #     arduino()
+        if start_button == 'pressed':
+            arduino()
 
         return redirect("/orders", code=302)
 
@@ -83,6 +83,16 @@ def menu():
 
 @app.route('/basket', methods=['GET', 'POST'])
 def basket():
+<<<<<<< HEAD
+    if 'delete' in request.form:
+        delete_button = request.form.get('delete')
+        if delete_button == 'pressed':
+            pizzaid = request.form.get('item_id')
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Basket WHERE Id=?", (pizzaid,))
+            conn.commit()
+=======
     # if 'delete' in request.form:
     #     delete_button = request.form.get('delete')
     #     if delete_button == 'pressed':
@@ -90,6 +100,7 @@ def basket():
     #         cursor = conn.cursor()
     #         cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
     #         conn.commit()
+>>>>>>> 9702b32d0f13f119f4accf8fef5eca71628376f7
 
     # items = get_data_from_db("Basket")
     # return render_template("website/overview.html", data=items)
