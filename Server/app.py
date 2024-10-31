@@ -102,7 +102,9 @@ def basket():
             VACUUM; """)
 
     items = get_data_from_db("Basket")
+    print(items)
     return render_template("website/overview.html", data=items)
+
 
 
 @app.route('/basket_data', methods=[''])
@@ -115,8 +117,8 @@ def basket_data():
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO Orders (OrderType, Img, Size, Price)
-        VALUES (?, ?, ?)
+        INSERT INTO Basket (OrderType, Img, Size, Price)
+        VALUES (?, ?, ?, ?)
     ''', (pizzaType, img, size, price))
 
     conn.commit()
