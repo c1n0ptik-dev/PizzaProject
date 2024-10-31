@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
   padding: 0px;
@@ -8,36 +9,99 @@
 
 body {
   background-color: #f1f1f1;
-  font-family: "Inter", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 a {
-  text-decoration: underline;
   color: #000;
+  text-decoration: none;
 }
 
 .header_container {
+  max-height: 100px;
   display: flex;
-  font-size: 25px;
+  font-size: 35px;
   max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding-top: 40px;
 }
-.hero_section {
-  background-color: #008c45;
+
+.main_container {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 20px;
 }
-.offer_section {
-  background-color: #008c45;
+
+.main-content-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 150px;
 }
-.hero_img {
-  width: 650px;
-  height: 500px;
+
+.left {
+  max-width: 500px;
+}
+
+.right {
+  max-width: 500px;
+}
+
+.right img {
+  width: 100%;
+  height: auto;
+}
+.cta_btn {
+  background-color: #d81b24;
+  color: #fff;
+  font-size: 25px;
+  padding: 25px 30px 25px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+}
+
+.left p {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.left h1 {
+  font-size: 80px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: "Arvo", serif;
+}
+.left h2 {
+  margin-bottom: 30px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.pizza_logo_container {
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.7));
+  display: inline-block;
+}
+
+.pizza_logo {
+  animation: rotate 7s infinite linear;
 }

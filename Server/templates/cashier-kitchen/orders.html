@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kitchen Orders</title>
-  <link rel="stylesheet" href="../../static/css/orders.css" />
-  <meta http-equiv="refresh" content="10">
-</head>
-<body>
-<div class="container">
-  <h1>Kitchen Orders</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitchen Orders</title>
+    <link rel="stylesheet" href="../../static/css/orders.css" />
+    <meta http-equiv="refresh" content="10" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kitchen Orders</h1>
 
-  <div class="main-table-container">
-    <table class="order-table">
-      <thead>
-      <tr>
-        <th>Order Number</th>
-        <th>Time</th>
-        <th>Pizza Names</th>
-        <th>Addition</th>
-        <th>Toppings</th>
-        <th>Start / Ready</th>
-      </tr>
-      </thead>
-      <tbody>
-      {% for row in data %}
-      <tr>
-        <td style="text-align: center">{{ row[0] }}</td>
-        <td style="text-align: center">{{ row[4] }}</td>
-        <td>{{ row[1] }}</td>
-        <td>{{ row[2] }}</td>
-        <td>{{ row[3] }}</td>
-        <td>    <form method="post">
-          <button type="submit" name="start" value="pressed">Start</button>
-          <input type="hidden" name="item_id" value="{{ row[0] }}">
-          <button type="submit" name="ready" value="pressed" style="background-color:darkred">Ready</button>
-        </form></td>
-      </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
-</body>
+      <div class="main-table-container">
+        <table class="order-table">
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Time</th>
+              <th>Pizza Names</th>
+              <th>Addition</th>
+              <th>Toppings</th>
+              <th>Start / Ready</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in data %}
+            <tr>
+              <td style="text-align: center">{{ row[0] }}</td>
+              <td style="text-align: center">{{ row[4] }}</td>
+              <td>{{ row[1] }}</td>
+              <td>{{ row[2] }}</td>
+              <td>{{ row[3] }}</td>
+              <td>
+                <form method="post">
+                  <button type="submit" name="start" value="pressed">
+                    Start
+                  </button>
+                  <input type="hidden" name="item_id" value="{{ row[0] }}" />
+                  <button
+                    type="submit"
+                    name="ready"
+                    value="pressed"
+                    style="background-color: darkred"
+                  >
+                    Ready
+                  </button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="../../static/javascript/orders.js"></script>
+  </body>
 </html>

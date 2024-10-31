@@ -1,11 +1,13 @@
 const int redLedPin = 4;    
 const int greenLedPin = 5; 
 const long delayTime = 10000; 
+const int buzzer = 3;
 
 void setup() {
   Serial.begin(9600);  
   pinMode(redLedPin, OUTPUT);
   pinMode(greenLedPin, OUTPUT);
+  pinMode(buzzer, OUTPUT);
 
 
   digitalWrite(redLedPin, LOW);
@@ -19,17 +21,19 @@ void loop() {
     if (command == "StartSequence") {
       Serial.println("Sequence started");
 
-      // Turn on the red LED
+
       digitalWrite(redLedPin, HIGH);
 
-      // Wait for 10 seconds
       delay(delayTime);
 
-      // Turn off the red LED and turn on the green LED
       digitalWrite(redLedPin, LOW);
       digitalWrite(greenLedPin, HIGH);
 
-      delay(5000);
+      tone(buzzer, 1000);
+      delay(500);
+      noTone(buzzer);
+
+      delay(4000);
 
       digitalWrite(greenLedPin, LOW);
       Serial.println("Sequence finished");
