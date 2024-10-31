@@ -46,8 +46,8 @@ def orders():
     if 'start' in request.form:
         start_button = request.form.get('start')
 
-        if start_button == 'pressed':
-            arduino()
+        # if start_button == 'pressed':
+        #     arduino()
 
         return redirect("/orders", code=302)
 
