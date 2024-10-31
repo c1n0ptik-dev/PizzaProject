@@ -21,22 +21,18 @@ def get_data_from_db():
 
 
 def arduino():
-    ser = serial.Serial("COM4", baudrate=9600, timeout=1)
-    time.sleep(2)  # Allow time for Arduino to initialize
+    ser = serial.Serial("COM3", baudrate=9600, timeout=1)
+    time.sleep(2)
 
-    # Send the command to start the sequence
     ser.write("StartSequence\n".encode())
 
-    # Wait for response from Arduino
     while True:
         if ser.in_waiting > 0:
             response = ser.readline().decode().strip()
 
-            # Break if the sequence is finished
             if response == "Sequence finished":
                 break
 
-    # Close the serial connection
     ser.close()
 
 
@@ -52,17 +48,16 @@ def orders():
 
         if start_button == 'pressed':
             arduino()
-            start_button = ''
 
         return redirect("/orders", code=302)
 
     elif 'ready' in request.form:
         start_button = request.form.get('ready')
         if start_button == 'pressed':
-            id = request.form.get('item_id')
+            orderid = request.form.get('item_id')
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM Orders WHERE OrderId=?", (id,))
+            cursor.execute("DELETE FROM Orders WHERE OrderId=?", (orderid,))
             conn.commit()
 
         return redirect("/orders", code=302)
@@ -79,6 +74,7 @@ def cashier():
 @app.route('/aboutus')
 def aboutus():
     return render_template('website/aboutus.html')
+
 
 @app.route('/send_data', methods=['POST'])
 def send_data():
@@ -98,10 +94,9 @@ def send_data():
     conn.commit()
     conn.close()
 
-    # Print the data to the console
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
 
-    return redirect("/cashier", code=302)  # Response for form submission
+    return redirect("/cashier", code=302)
 
 
 if __name__ == "__main__":
