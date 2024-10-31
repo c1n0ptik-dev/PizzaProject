@@ -91,8 +91,21 @@ def basket():
             cursor = conn.cursor()
             cursor.execute("DELETE FROM Basket WHERE Id=?", (pizzaid,))
             conn.commit()
+<<<<<<< HEAD
     items = get_data_from_db("Basket")
     return render_template("website/overview.html", data=items)
+=======
+    # if 'delete' in request.form:
+    #     delete_button = request.form.get('delete')
+    #     if delete_button == 'pressed':
+    #         conn = sqlite3.connect('database/database.db')
+    #         cursor = conn.cursor()
+    #         cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
+    #         conn.commit()
+    # items = get_data_from_db("Basket")
+    # return render_template("website/overview.html", data=items)
+    return render_template("website/overview.html")
+>>>>>>> d09bbe949270b647627d947e00c5deb9bd0e92d7
 
 
 @app.route('/basket_data', methods=[''])
