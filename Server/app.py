@@ -8,11 +8,11 @@ import serial
 app = Flask(__name__, template_folder='templates')
 
 
-def get_data_from_db():
+def get_data_from_db(table_name):
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM Orders")
+    cursor.execute(f"SELECT * FROM {table_name}")
     rows = cursor.fetchall()
 
     conn.close()
@@ -62,7 +62,7 @@ def orders():
 
         return redirect("/orders", code=302)
 
-    orders = get_data_from_db()
+    orders = get_data_from_db("Orders")
     return render_template('cashier-kitchen/orders.html', data=orders)
 
 
@@ -74,6 +74,44 @@ def cashier():
 @app.route('/aboutus')
 def aboutus():
     return render_template('website/aboutus.html')
+
+
+@app.route('/menu', methods=['GET'])
+def menu():
+    return render_template('website/overview.html')
+
+
+@app.route('/basket', methods=['GET', 'POST'])
+def basket():
+    if 'delete' in request.form:
+        delete_button = request.form.get('delete')
+        if delete_button == 'pressed':
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
+            conn.commit()
+
+    items = get_data_from_db("Basket")
+    return render_template("website/overview.html", data=items)
+
+
+@app.route('/basket_data', methods=[''])
+def basket_data():
+    pizzaType = request.form.get('pizzaType')
+    size = request.form.get('size')
+    price = request.form.get('price')
+
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO Orders (OrderType, Size, Price)
+        VALUES (?, ?, ?)
+    ''', (pizzaType, size, price))
+
+    conn.commit()
+    conn.close()
+
+    return redirect("/basket", code=302)
 
 
 @app.route('/send_data', methods=['POST'])
