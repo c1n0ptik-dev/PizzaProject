@@ -17,29 +17,30 @@ a {
 }
 
 .header_container {
+    max-height: 100px;
     display: flex;
-    font-size: 25px;
+    font-size: 35px;
     max-width: 1200px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding-top: 40px;
 }   
 .pizza_menu{
     display: grid;
-    text-align: center;
     align-content: center;
     grid-template-columns: 50% 50%;
     width: 1000px;
-    margin-left: 400px;
+    margin-left: 375px;
     align-content: space-evenly;
+    column-gap: 150px;
 }
 .pizza{
     margin: 50px;
     display: flex;
-    border: 1px lightgray solid;
-    width: 450px;
+    border: 2px rgb(237, 237, 237) solid;
+    width: 550px;
 }
 
 .underheader{
@@ -60,9 +61,11 @@ hr {
 }
 
 .pizza_name{
-    font-size: 25px;
+    font-size: 30px;
     padding-left: 5px;
-    padding-top:20px
+    padding-top:20px;
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 button{
@@ -79,9 +82,30 @@ button{
     font-size: 13px;
     height: 34px;
     width: 120px;
-    margin-top: 200px
 }
 button:hover{
     background: 0 0;
     color: #ff4742;
+}
+p {
+    font-size: 17px;
+}
+
+.pizza_ingredients{
+    color: rgb(100,100,100);
+    text-align: center;
+}
+.basket_button{
+    float: right;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+.box_container{
+    padding-top: 20px;
+    font-size: 15px;    
+    padding-left: 40px;
+}
+.box_container input {
+    margin-top: 15px;
 }
