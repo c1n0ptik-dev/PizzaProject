@@ -32,59 +32,62 @@
     <div class="CartContainer">
       <div class="Header">
         <h3 class="Heading">Shopping Cart</h3>
-        <button class="rem-button">
+        <form method="post">
+        <button class="rem-button" name="delete_all" value="pressed">
           <h5 class="Action">Remove all</h5>
         </button>
+        </form>
       </div>
+      {% set prices = [] %}
+
+      {% for row in data %}
+        {% if prices.append(row[4]) %} {% endif %}
+
 
       <!-- Cart Item 1 -->
       <div class="Cart-Items">
         <div class="image-box">
-          <img src="../../static/img/apple.png" style="height: 120px" />
+          <img src="../../static/img/{{ row[2] }}.png" style="height: 120px" />
         </div>
         <div class="about">
-          <h1 class="title">Apple Juice</h1>
-          <h3 class="subtitle">250ml</h3>
+          <h1 class="title">{{ row[1] }}</h1>
+          <h3 class="subtitle">{{ row[3] }}</h3>
         </div>
         <div class="counter"></div>
         <div class="prices">
-          <div class="amount">$2.99</div>
-          <button class ="rem-button">
+          <div class="amount">${{ row[4] }}</div>
+          <form method="post">
+          <input type="hidden" name="item_delete_id" value="{{ row[0] }}" />
+          <button class ="rem-button" type="submit" name="delete" value="pressed">
             <div class="remove"><u>Remove</u></div>
           </button>
+          </form>
         </div>
       </div>
 
-      <!-- Cart Item 2 -->
-      <div class="Cart-Items pad">
-        <div class="image-box">
-          <img src="../../static/img/grapes.png" style="height: 120px" />
-        </div>
-        <div class="about">
-          <h1 class="title">Grapes Juice</h1>
-          <h3 class="subtitle">250ml</h3>
-        </div>
-        <div class="counter"></div>
-        <div class="prices">
-          <div class="amount">$3.19</div>
-          <button class ="rem-button">
-            <div class="remove"><u>Remove</u></div>
-            </button>
-        </div>
-      </div>
+      {% endfor %}
 
       <div class="checkout">
         <div class="total">
-          <div>
-            <div class="Subtotal">Sub-Total</div>
-            <div class="items">2 items</div>
+          {% if prices|length >= 0 %}
+            <div>
+              <div class="Subtotal">Sub-Total</div>
+              <div class="items">{{ prices | length }} items</div>
+            </div>
+            {% set num_array = prices | to_int_list %}
+            <div class="total-amount">{{ num_array | sum }}</div>
           </div>
-          <div class="total-amount">$6.18</div>
+          <center>
+            <button class="button">Checkout</button>
+          </center>
         </div>
-        <center>
-          <button class="button">Checkout</button>
-        </center>
-      </div>
+      {% else %}
+        <div style="display: flex; justify-items: center; text-align: center ">
+          <div>
+            <p>No items in basket</p>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </body>
 </html>

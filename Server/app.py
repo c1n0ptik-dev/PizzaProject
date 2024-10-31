@@ -86,26 +86,23 @@ def basket():
     if 'delete' in request.form:
         delete_button = request.form.get('delete')
         if delete_button == 'pressed':
-            pizzaid = request.form.get('item_id')
+            itemid = request.form.get('item_delete_id')
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM Basket WHERE Id=?", (pizzaid,))
+            cursor.execute("DELETE FROM Basket WHERE Id=?", (itemid,))
             conn.commit()
-<<<<<<< HEAD
+
+    elif 'delete_all' in request.form:
+        delete_button = request.form.get('delete_all')
+        if delete_button == 'pressed':
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+
+            cursor.execute("""DELETE FROM Basket;
+            VACUUM; """)
+
     items = get_data_from_db("Basket")
     return render_template("website/overview.html", data=items)
-=======
-    # if 'delete' in request.form:
-    #     delete_button = request.form.get('delete')
-    #     if delete_button == 'pressed':
-    #         conn = sqlite3.connect('database/database.db')
-    #         cursor = conn.cursor()
-    #         cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
-    #         conn.commit()
-    # items = get_data_from_db("Basket")
-    # return render_template("website/overview.html", data=items)
-    return render_template("website/overview.html")
->>>>>>> d09bbe949270b647627d947e00c5deb9bd0e92d7
 
 
 @app.route('/basket_data', methods=[''])
@@ -126,6 +123,16 @@ def basket_data():
     conn.close()
 
     return redirect("/basket", code=302)
+
+
+@app.template_filter('sum_list')
+def sum_list(array):
+    return sum(array)
+
+
+@app.template_filter('to_int_list')
+def to_int_list(string_list):
+    return [float(item) for item in string_list]
 
 
 @app.route('/send_data', methods=['POST'])
