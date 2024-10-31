@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/static/css/overview.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/static/img/apple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/static/img/grapes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/static/img/veg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/static/css/overview.css" beforeDir="false" afterPath="$PROJECT_DIR$/Server/static/css/overview.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/templates/website/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/templates/website/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
     </list>
@@ -98,6 +96,7 @@
       <workItem from="1730361355997" duration="8319000" />
       <workItem from="1730372869290" duration="98000" />
       <workItem from="1730373067115" duration="2595000" />
+      <workItem from="1730375857064" duration="1266000" />
     </task>
     <servers />
   </component>
