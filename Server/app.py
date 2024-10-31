@@ -83,47 +83,59 @@ def menu():
 
 @app.route('/basket', methods=['GET', 'POST'])
 def basket():
-<<<<<<< HEAD
     if 'delete' in request.form:
         delete_button = request.form.get('delete')
         if delete_button == 'pressed':
-            pizzaid = request.form.get('item_id')
+            itemid = request.form.get('item_delete_id')
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM Basket WHERE Id=?", (pizzaid,))
+            cursor.execute("DELETE FROM Basket WHERE Id=?", (itemid,))
             conn.commit()
-=======
-    # if 'delete' in request.form:
-    #     delete_button = request.form.get('delete')
-    #     if delete_button == 'pressed':
-    #         conn = sqlite3.connect('database/database.db')
-    #         cursor = conn.cursor()
-    #         cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
-    #         conn.commit()
->>>>>>> 9702b32d0f13f119f4accf8fef5eca71628376f7
 
-    # items = get_data_from_db("Basket")
-    # return render_template("website/overview.html", data=items)
-    return render_template("website/overview.html")
+    elif 'delete_all' in request.form:
+        delete_button = request.form.get('delete_all')
+        if delete_button == 'pressed':
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+
+            cursor.execute("""DELETE FROM Basket; """)
+            conn.commit()
+            conn.close()
+
+    items = get_data_from_db("Basket")
+    print(items)
+    return render_template("website/overview.html", data=items)
+
 
 
 @app.route('/basket_data', methods=[''])
 def basket_data():
     pizzaType = request.form.get('pizzaType')
+    img = request.form.get('img')
     size = request.form.get('size')
     price = request.form.get('price')
 
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO Orders (OrderType, Size, Price)
-        VALUES (?, ?, ?)
-    ''', (pizzaType, size, price))
+        INSERT INTO Basket (OrderType, Img, Size, Price)
+        VALUES (?, ?, ?, ?)
+    ''', (pizzaType, img, size, price))
 
     conn.commit()
     conn.close()
 
     return redirect("/basket", code=302)
+
+
+@app.template_filter('sum_list')
+def sum_list(array):
+    return sum(array)
+
+
+@app.template_filter('to_int_list')
+def to_int_list(string_list):
+    return [float(item) for item in string_list]
 
 
 @app.route('/send_data', methods=['POST'])
