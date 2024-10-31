@@ -98,8 +98,9 @@ def basket():
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
 
-            cursor.execute("""DELETE FROM Basket;
-            VACUUM; """)
+            cursor.execute("""DELETE FROM Basket; """)
+            conn.commit()
+            conn.close()
 
     items = get_data_from_db("Basket")
     print(items)
