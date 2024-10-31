@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/data_sender.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/overwiev.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +92,7 @@
       <workItem from="1730202519500" duration="32000" />
       <workItem from="1730275890867" duration="20263000" />
       <workItem from="1730316307647" duration="2629000" />
-      <workItem from="1730361355997" duration="2385000" />
+      <workItem from="1730361355997" duration="6802000" />
     </task>
     <servers />
   </component>
@@ -99,7 +101,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$data_sender.coverage" NAME="data_sender Coverage Results" MODIFIED="1730309203861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
-    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730364917965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730366658896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/OneDrive/Desktop/Python-Flask-PizzaShop-master" />
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$sql.coverage" NAME="sql Coverage Results" MODIFIED="1730209019131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/databases" />
   </component>
 </project>
