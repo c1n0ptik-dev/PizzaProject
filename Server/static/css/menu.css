@@ -1,0 +1,38 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+  
+body {
+    font-family: "Inter", sans-serif;
+}
+a {
+    text-decoration: underline;
+    color: #000;
+}
+
+.header_container {
+    display: flex;
+    font-size: 25px;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}   
+.pizza_menu{
+    display: grid;
+    text-align: center;
+    align-content: center;
+    grid-template-columns: 50% 50%;
+    width: 1000px;
+    margin-left: 40px;
+    align-content: space-evenly;
+}
+.pizza{
+    margin: 50px;
+    display: flex;
+    border: 1px lightgray solid
+}
