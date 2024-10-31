@@ -83,16 +83,17 @@ def menu():
 
 @app.route('/basket', methods=['GET', 'POST'])
 def basket():
-    if 'delete' in request.form:
-        delete_button = request.form.get('delete')
-        if delete_button == 'pressed':
-            conn = sqlite3.connect('database/database.db')
-            cursor = conn.cursor()
-            cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
-            conn.commit()
+    # if 'delete' in request.form:
+    #     delete_button = request.form.get('delete')
+    #     if delete_button == 'pressed':
+    #         conn = sqlite3.connect('database/database.db')
+    #         cursor = conn.cursor()
+    #         cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
+    #         conn.commit()
 
-    items = get_data_from_db("Basket")
-    return render_template("website/overview.html", data=items)
+    # items = get_data_from_db("Basket")
+    # return render_template("website/overview.html", data=items)
+    return render_template("website/overview.html")
 
 
 @app.route('/basket_data', methods=[''])
