@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
 * {
     padding: 0px;
     margin: 0px;
@@ -5,11 +9,11 @@
   }
   
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 a {
-    text-decoration: underline;
     color: #000;
+    text-decoration: none;
 }
 
 .header_container {
@@ -28,11 +32,56 @@ a {
     align-content: center;
     grid-template-columns: 50% 50%;
     width: 1000px;
-    margin-left: 40px;
+    margin-left: 400px;
     align-content: space-evenly;
 }
 .pizza{
     margin: 50px;
     display: flex;
-    border: 1px lightgray solid
+    border: 1px lightgray solid;
+    width: 450px;
+}
+
+.underheader{
+    font-size: 23px;
+    margin-left: 22%;
+    margin-top: 1%;
+}
+
+hr {
+    margin-top: 0.8%;
+    border: 0;
+    clear:both;
+    display:block;
+    width: 60%;
+    background-color:black;
+    height: 1.5px;
+    margin-left: 20%;
+}
+
+.pizza_name{
+    font-size: 25px;
+    padding-left: 5px;
+    padding-top:20px
+}
+
+button{
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 2px solid #ff4742;
+    color: #fff;
+    background-color: #ff4742;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+    font-weight: 800;
+    font-size: 13px;
+    height: 34px;
+    width: 120px;
+    margin-top: 200px
+}
+button:hover{
+    background: 0 0;
+    color: #ff4742;
 }
