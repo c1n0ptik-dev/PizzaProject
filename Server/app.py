@@ -86,9 +86,10 @@ def basket():
     if 'delete' in request.form:
         delete_button = request.form.get('delete')
         if delete_button == 'pressed':
+            pizzaid = request.form.get('item_id')
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM Basket WHERE Id=?", (orderid,))
+            cursor.execute("DELETE FROM Basket WHERE Id=?", (pizzaid,))
             conn.commit()
 
     items = get_data_from_db("Basket")
