@@ -75,6 +75,9 @@ def cashier():
 def aboutus():
     return render_template('website/aboutus.html')
 
+@app.route("/workinghours")
+def workinghours():
+    return render_template("website/work_hours.html")
 
 @app.route('/menu', methods=['GET'])
 def menu():
