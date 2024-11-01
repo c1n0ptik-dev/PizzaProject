@@ -94,7 +94,8 @@
       <workItem from="1730373067115" duration="2595000" />
       <workItem from="1730375857064" duration="1474000" />
       <workItem from="1730377530117" duration="3645000" />
-      <workItem from="1730387833996" duration="2185000" />
+      <workItem from="1730387833996" duration="5626000" />
+      <workItem from="1730419833582" duration="620000" />
     </task>
     <servers />
   </component>
@@ -103,7 +104,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$data_sender.coverage" NAME="data_sender Coverage Results" MODIFIED="1730309203861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
-    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730389312786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730390197883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$sql.coverage" NAME="sql Coverage Results" MODIFIED="1730209019131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/databases" />
   </component>
 </project>
