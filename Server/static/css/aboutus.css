@@ -1,11 +1,39 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+body {
+    font-family: "Josefin Sans", sans-serif;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+.header_container {
+    max-height: 100px;
+    display: flex;
+    font-size: 35px;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 40px;
+}  
 body {
   margin: 0;
   background-color: #f1f1f1;
-  font-family: "Inter", sans-serif;
 }
 
+section{
+
+  margin-top: 40px;
+}
 html {
   box-sizing: border-box;
 }
@@ -31,12 +59,18 @@ html {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #474e5d;
   color: white;
+  text-align: center;
+  background-image: url("https://www.alfrescochef.co.uk/cdn/shop/articles/img-1711997517457_6407ffc7-86c1-494d-a61e-dcef70a24eb9.png?v=1727880479&width=1200");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
   padding: 0 16px;
+  padding-top: 10px;
+  line-height: 1.4;
+  padding-bottom: 5px;
 }
 
 .container::after,
@@ -93,6 +127,7 @@ html {
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
+  background-color: white;
 }
 
 .container {
@@ -131,9 +166,18 @@ html {
 }
 .our_team {
   font-size: 80px;
+  color: black;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
-.about-section {
-  background-image: url("https://img.freepik.com/premium-photo/italian-pizza-oven_132358-14971.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.about-section h1{
+  font-size: 60px;
+  padding-top: 50px;
+}
+.about-section p {
+  font-size: 25px;
+  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-inline: 400px;
 }
