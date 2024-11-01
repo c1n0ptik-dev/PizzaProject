@@ -78,7 +78,7 @@ def aboutus():
 
 @app.route('/menu', methods=['GET'])
 def menu():
-    return render_template('website/overview.html')
+    return render_template('website/menu.html')
 
 
 @app.route('/basket', methods=['GET', 'POST'])
@@ -127,6 +127,34 @@ def basket_data():
 
     return redirect("/basket", code=302)
 
+@app.route('/checkout_order', methods=['POST'])
+def checkout_order():
+    selected_time = request.form.get('pickup_time')
+
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Basket")
+    basket_items = cursor.fetchall()
+
+    for item in basket_items:
+        pizza_type = item[1]  #PizzaType
+        description = f"Size: {item[3]}"  
+        toppings = "No topping"  
+
+        cursor.execute(''' 
+            INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
+            VALUES (?, ?, ?, ?)
+        ''', (pizza_type, description, toppings, selected_time))
+
+    cursor.execute("DELETE FROM Basket")
+    conn.commit()
+    conn.close()
+
+    return redirect("/success", code=302)
+
+@app.route("/success")
+def success():
+    return render_template("website/success.html")
 
 @app.template_filter('sum_list')
 def sum_list(array):
