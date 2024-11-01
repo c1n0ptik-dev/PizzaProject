@@ -43,6 +43,13 @@ a {
     width: 550px;
 }
 
+.drink{
+    margin: 50px;
+    display: flex;
+    border: 2px rgb(237, 237, 237) solid;
+    width: 550px;
+    justify-content: space-between;
+}
 .underheader{
     font-size: 23px;
     margin-left: 22%;
@@ -66,6 +73,15 @@ hr {
     padding-top:20px;
     padding-bottom: 20px;
     text-align: center;
+}
+
+.drink_name{
+    font-size: 30px;
+    padding-left: 5px;
+    padding-top:20px;
+    padding-bottom: 20px;
+    text-align: center;
+
 }
 
 button{
@@ -101,6 +117,13 @@ p {
     padding-bottom: 20px;
     padding-right: 20px;
 }
+.basket_button_drink{
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 250px;
+}
 .box_container{
     padding-top: 20px;
     font-size: 15px;    
@@ -108,4 +131,13 @@ p {
 }
 .box_container input {
     margin-top: 15px;
+}
+.drink_menu{
+    display: grid;
+    align-content: center;
+    grid-template-columns: 50% 50%;
+    width: 1000px;
+    margin-left: 375px;
+    align-content: space-evenly;
+    column-gap: 150px;
 }

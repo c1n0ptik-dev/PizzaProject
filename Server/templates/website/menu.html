@@ -11,113 +11,196 @@
         <link rel="stylesheet" href="../../static/css/menu.css" />
     </head>
     <body>
-    <header>
-        <div class="header_container">
-            <div>
-                <a href="aboutus">About Us</a>
+        <header>
+            <div class="header_container">
+                <div>
+                    <a href="aboutus">About Us</a>
+                </div>
+                <div>
+                    <a href="#">Menu</a>
+                </div>
+                <div>
+                    <img src="../../static/img/front_logo.png" class="main_logo" alt="" />
+                </div>
+                <div>
+                    <a href="#">Basket</a>
+                </div>
+                <div>
+                    <a href="#">Account</a>
+                </div>
             </div>
-            <div>
-                <a href="#">Menu</a>
-            </div>
-            <div>
-                <img src="../../static/img/front_logo.png" class="main_logo" alt="" />
-            </div>
-            <div>
-                <a href="#">Basket</a>
-            </div>
-            <div>
-                <a href="#">Account</a>
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <section>
-      <div class="main_container">
-          <p class="underheader"><b>Order</b> your Pizza</p>
-          <hr>
-          <div class="pizza_menu">
-              <div class="pizza">
-                  <div class="pizza_image">
-                      <img src="../../static/img/margharita.png" width="250px" height="250px">
-                  </div>
-                  <div class="pizza_text">
-                      <p class="pizza_name">Margarita</p>
-                      <p class="pizza_ingredients">Tomato sauce, mozzarella , basil & olive oil</p>
-                      <div class="box_container">
-                        <input type="checkbox" id="margharita_s" name="margharita_s" value="TEMPRORARY">
-                        <label for="margharita_s"> Small</label><br>
-                        <input type="checkbox" id="margharita_m" name="margharita_m" value="TEMPRORARY">
-                        <label for="margharita_m"> Medium</label><br>
-                        <input type="checkbox" id="margharita_l" name="margharita_l" value="TEMPRORARY">
-                        <label for="margharita_l"> Large</label><br>                             
-                      </div>
-                      <div class="basket_button">
-                        <button>Add to basket</button>
-                      </div>
-                  </div>
-              </div>
-              <div class="pizza">
-                  <div class="pizza_image">
-                      <img src="../../static/img/tonno.png" width="250px" height="250px">
-                  </div>
-                  <div class="pizza_text">
-                      <p class="pizza_name">tonno</p>
-                      <p class="pizza_ingredients">Tomato sauce, mozzarella, olive oil, tuna & red onion</p>
-                      <div class="box_container">
-                        <input type="checkbox" id="tonno_s" name="tonno_s" value="TEMPRORARY">
-                        <label for="tonno_s"> Small</label><br>                             
-                        <input type="checkbox" id="tonno_m" name="tonno_m" value="TEMPRORARY">
-                        <label for="tonno_m"> Medium</label><br>                             
-                        <input type="checkbox" id="tonno_l" name="tonno_l" value="TEMPRORARY">
-                        <label for="tonno_l"> Large</label><br>
-                      </div>
-                      <div class="basket_button">
-                        <button>Add to basket</button>
-                      </div>
-                  </div>
-              </div>
-              <div class="pizza">
-                  <div class="pizza_image">
-                      <img src="../../static/img/funghi.png" width="250px" height="250px">
-                  </div>
-                  <div class="pizza_text">
-                      <p class="pizza_name">Funghi</p>
-                      <p class="pizza_ingredients">Tomato sauce, mozzarella, mushrooms & bell peppers</p>
-                      <div class="box_container">
-                        <input type="checkbox" id="funghi_s" name="funghi_s" value="TEMPRORARY">
-                        <label for="funghi_s"> Small</label><br>
-                        <input type="checkbox" id="funghi_m" name="funghi_m" value="TEMPRORARY">
-                        <label for="funghi_m"> Medium</label><br>
-                        <input type="checkbox" id="funghi_l" name="funghi_l" value="TEMPRORARY">
-                        <label for="funghi_l"> Large</label><br>
-                      </div>
-                      <div class="basket_button">
-                        <button>Add to basket</button>
-                      </div>
-                  </div>
-              </div>
-              <div class="pizza">
-                  <div class="pizza_image">
-                      <img src="../../static/img/diavola.png" width="250px" height="250px">
-                  </div>
-                  <div class="pizza_text">
-                      <p class="pizza_name">Diavola</p>
-                      <p class="pizza_ingredients">Tomato sauce, mozzarella, mushrooms & bell peppers</p>
-                      <div class="box_container">
-                        <input type="checkbox" id="diavola_s" name="diavola_s" value="TEMPRORARY">
-                        <label for="diavola_s"> Small</label><br>
-                        <input type="checkbox" id="diavola_m" name="diavola_m" value="TEMPRORARY">
-                        <label for="diavola_m"> Medium</label><br>
-                        <input type="checkbox" id="diavola_l" name="diavola_l" value="TEMPRORARY">
-                        <label for="diavola_l"> Large</label><br>
-                      </div>
-                      <div class="basket_button">
-                        <button>Add to basket</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
+        <section>
+            <div class="pizza_container">
+                <p class="underheader"><b>Order</b> your Pizza</p>
+                <hr>
+                <div class="pizza_menu">
+                    <div class="pizza">
+                        <div class="pizza_image">
+                            <img src="../../static/img/margharita.png" width="250px" height="250px">
+                        </div>
+                        <div class="pizza_text">
+                            <p class="pizza_name">Margarita</p>
+                            <p class="pizza_ingredients">Tomato sauce, mozzarella , basil & olive oil</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="margharita_s" name="margharita_s" value="TEMPRORARY">
+                                <label for="margharita_s"> Small</label><br>
+                                <input type="checkbox" id="margharita_m" name="margharita_m" value="TEMPRORARY">
+                                <label for="margharita_m"> Medium</label><br>
+                                <input type="checkbox" id="margharita_l" name="margharita_l" value="TEMPRORARY">
+                                <label for="margharita_l"> Large</label><br>                             
+                            </div>
+                            <div class="basket_button">
+                                <button>Add to basket</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza">
+                        <div class="pizza_image">
+                            <img src="../../static/img/tonno.png" style="padding-top: 10px; padding-left: 5px;" width="250px" height="250px">
+                        </div>
+                        <div class="pizza_text">
+                            <p class="pizza_name">tonno</p>
+                            <p class="pizza_ingredients">Tomato sauce, mozzarella, olive oil, tuna & red onion</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="tonno_s" name="tonno_s" value="TEMPRORARY">
+                                <label for="tonno_s"> Small</label><br>                             
+                                <input type="checkbox" id="tonno_m" name="tonno_m" value="TEMPRORARY">
+                                <label for="tonno_m"> Medium</label><br>                             
+                                <input type="checkbox" id="tonno_l" name="tonno_l" value="TEMPRORARY">
+                                <label for="tonno_l"> Large</label><br>
+                            </div>
+                            <div class="basket_button">
+                                <button>Add to basket</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza">
+                        <div class="pizza_image">
+                            <img src="../../static/img/funghi.png" width="250px" height="250px">
+                        </div>
+                        <div class="pizza_text">
+                            <p class="pizza_name">Funghi</p>
+                            <p class="pizza_ingredients">Tomato sauce, mozzarella, mushrooms & bell peppers</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="funghi_s" name="funghi_s" value="TEMPRORARY">
+                                <label for="funghi_s"> Small</label><br>
+                                <input type="checkbox" id="funghi_m" name="funghi_m" value="TEMPRORARY">
+                                <label for="funghi_m"> Medium</label><br>
+                                <input type="checkbox" id="funghi_l" name="funghi_l" value="TEMPRORARY">
+                                <label for="funghi_l"> Large</label><br>
+                            </div>
+                            <div class="basket_button">
+                                <button>Add to basket</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pizza">
+                        <div class="pizza_image">
+                            <img src="../../static/img/diavola.png" width="250px" height="250px">
+                        </div>
+                        <div class="pizza_text">
+                            <p class="pizza_name">Diavola</p>
+                            <p class="pizza_ingredients">Tomato sauce, mozzarella, mushrooms & bell peppers</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="diavola_s" name="diavola_s" value="TEMPRORARY">
+                                <label for="diavola_s"> Small</label><br>
+                                <input type="checkbox" id="diavola_m" name="diavola_m" value="TEMPRORARY">
+                                <label for="diavola_m"> Medium</label><br>
+                                <input type="checkbox" id="diavola_l" name="diavola_l" value="TEMPRORARY">
+                                <label for="diavola_l"> Large</label><br>
+                            </div>
+                            <div class="basket_button">
+                                <button>Add to basket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="drinks_container">
+                <p class="underheader"><b>Order</b> your drink</p>
+                <hr>
+                <div class="drink_menu">
+                    <div class="drink">
+                        <div class="drink_image" >
+                            <img src="../../static/img/coca_cola.png" style="padding-top: 15px;" width="250px" height="250px">
+                        </div>
+                        <div class="drink_text">
+                            <p class="drink_name">Coca cola</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="coca_cola_s" name="coca_cola_s" value="TEMPRORARY">
+                                <label for="margharita_s"> Small</label><br>
+                                <input type="checkbox" id="coca_cola_m" name="coca_cola_m" value="TEMPRORARY">
+                                <label for="margharita_m"> Medium</label><br>
+                                <input type="checkbox" id="coca_cola_l" name="coca_cola_l" value="TEMPRORARY">
+                                <label for="margharita_l"> Large</label><br>                             
+                            </div>
+                        </div>
+                        <div class="basket_button_drink">
+                            <button>Add to basket</button>
+                        </div>
+                    </div>
+                    <div class="drink">
+                        <div class="drink_image" >
+                            <img src="../../static/img/water.png" style="padding-top: 15px;" width="250px" height="250px">
+                        </div>
+                        <div class="drink_text">
+                            <p class="drink_name">Water</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="water_s" name="water_s" value="TEMPRORARY">
+                                <label for="margharita_s"> Small</label><br>
+                                <input type="checkbox" id="water_m" name="water_m" value="TEMPRORARY">
+                                <label for="margharita_m"> Medium</label><br>
+                                <input type="checkbox" id="water_l" name="water_l" value="TEMPRORARY">
+                                <label for="margharita_l"> Large</label><br>                             
+                            </div>
+                        </div>
+                        <div class="basket_button_drink">
+                            <button>Add to basket</button>
+                        </div>
+                    </div>
+                    <div class="drink">
+                        <div class="drink_image" >
+                            <img src="../../static/img/sprite.png" style="padding-top: 15px;" width="250px" height="250px">
+                        </div>
+                        <div class="drink_text">
+                            <p class="drink_name">Sprite</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="sprite_s" name="sprite_s" value="TEMPRORARY">
+                                <label for="margharita_s"> Small</label><br>
+                                <input type="checkbox" id="sprite_m" name="sprite_m" value="TEMPRORARY">
+                                <label for="margharita_m"> Medium</label><br>
+                                <input type="checkbox" id="sprite_l" name="sprite_l" value="TEMPRORARY">
+                                <label for="margharita_l"> Large</label><br>                             
+                            </div>
+                        </div>
+                        <div class="basket_button_drink">
+                            <button>Add to basket</button>
+                        </div>
+                    </div>
+                    <div class="drink">
+                        <div class="drink_image" >
+                            <img src="../../static/img/apple_juice.jpg" style="padding-top: 15px;" width="250px" height="250px">
+                        </div>
+                        <div class="drink_text">
+                            <p class="drink_name">Apple juice</p>
+                            <div class="box_container">
+                                <input type="checkbox" id="apple_juice_s" name="apple_juice_s" value="TEMPRORARY">
+                                <label for="margharita_s"> Small</label><br>
+                                <input type="checkbox" id="apple_juice_m" name="apple_juice_m" value="TEMPRORARY">
+                                <label for="margharita_m"> Medium</label><br>
+                                <input type="checkbox" id="apple_juice_l" name="apple_juice_l" value="TEMPRORARY">
+                                <label for="margharita_l"> Large</label><br>                             
+                            </div>
+                        </div>
+                        <div class="basket_button_drink">
+                            <button>Add to basket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
+</html>
