@@ -110,6 +110,7 @@ p {
 .pizza_ingredients{
     color: rgb(100,100,100);
     text-align: center;
+    padding-right: 8px;
 }
 .basket_button{
     float: right;
@@ -121,13 +122,13 @@ p {
     float: right;
     margin-bottom: 20px;
     margin-right: 20px;
-    margin-left: 20px;
     margin-top: 250px;
 }
 .box_container{
     padding-top: 20px;
     font-size: 15px;    
     padding-left: 40px;
+    inline-size: max-content;
 }
 .box_container input {
     margin-top: 15px;
