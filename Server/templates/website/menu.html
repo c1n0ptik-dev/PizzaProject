@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8" />
         <title>Menu</title>
@@ -200,7 +201,461 @@
                         </div>
                     </div>
                 </div>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menu</title>
+    <link
+      rel="shortcut icon"
+      href="../../static/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../static/css/menu.css" />
+    <script>
+      function addToBasket(button) {
+        const pizzaName = button.getAttribute("data-name");
+        const img = button.getAttribute("data-img");
+
+        let size;
+        const pizzaSizeOptions = document.getElementsByName(
+          pizzaName.toLowerCase() + "_size"
+        );
+        for (const option of pizzaSizeOptions) {
+          if (option.checked) {
+            size = option.value;
+            break;
+          }
+        }
+
+        if (!size) {
+          alert("Please select a size for your order.");
+          return;
+        }
+
+        const data = {
+          name: pizzaName,
+          image: img,
+          size: size,
+        };
+
+        fetch("/add_to_basket", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "success") {
+              alert(data.message);
+            } else {
+              alert("Failed to add item to basket.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header_container">
+        <div><a href="aboutus">About Us</a></div>
+        <div><a href="#">Menu</a></div>
+        <div>
+          <img src="../../static/img/front_logo.png" class="main_logo" alt="" />
+        </div>
+        <div><a href="#">Basket</a></div>
+        <div><a href="#">Account</a></div>
+      </div>
+    </header>
+
+    <section>
+      <div class="pizza_container">
+        <p class="underheader"><b>Order</b> your Pizza</p>
+        <hr />
+        <div class="pizza_menu">
+          <div class="pizza">
+            <div class="pizza_image">
+              <img
+                src="../../static/img/margharita.png"
+                width="250px"
+                height="250px"
+              />
+>>>>>>> e51cb9cf804082daf91abcbbf3b38403d951b40d
             </div>
-        </section>
-    </body>
+            <div class="pizza_text">
+              <p class="pizza_name">Margarita</p>
+              <p class="pizza_ingredients">
+                Tomato sauce, mozzarella, basil & olive oil
+              </p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="margharita_s"
+                  name="margarita_size"
+                  value="small"
+                />
+                <label for="margharita_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="margharita_m"
+                  name="margarita_size"
+                  value="medium"
+                />
+                <label for="margharita_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="margharita_l"
+                  name="margarita_size"
+                  value="large"
+                />
+                <label for="margharita_l"> Large</label><br />
+              </div>
+              <div class="basket_button">
+                <button
+                  data-name="Margarita"
+                  data-img="margharita"
+                  onclick="addToBasket(this)"
+                >
+                  Add to basket
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="pizza">
+            <div class="pizza_image">
+              <img
+                src="../../static/img/tonno.png"
+                style="padding-top: 10px; padding-left: 5px"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="pizza_text">
+              <p class="pizza_name">Tonno</p>
+              <p class="pizza_ingredients">
+                Tomato sauce, mozzarella, olive oil, tuna & red onion
+              </p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="tonno_s"
+                  name="tonno_size"
+                  value="small"
+                />
+                <label for="tonno_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="tonno_m"
+                  name="tonno_size"
+                  value="medium"
+                />
+                <label for="tonno_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="tonno_l"
+                  name="tonno_size"
+                  value="large"
+                />
+                <label for="tonno_l"> Large</label><br />
+              </div>
+              <div class="basket_button">
+                <button
+                  data-name="Tonno"
+                  data-img="tonno"
+                  onclick="addToBasket(this)"
+                >
+                  Add to basket
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="pizza">
+            <div class="pizza_image">
+              <img
+                src="../../static/img/funghi.png"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="pizza_text">
+              <p class="pizza_name">Funghi</p>
+              <p class="pizza_ingredients">
+                Tomato sauce, mozzarella, mushrooms & bell peppers
+              </p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="funghi_s"
+                  name="funghi_size"
+                  value="small"
+                />
+                <label for="funghi_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="funghi_m"
+                  name="funghi_size"
+                  value="medium"
+                />
+                <label for="funghi_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="funghi_l"
+                  name="funghi_size"
+                  value="large"
+                />
+                <label for="funghi_l"> Large</label><br />
+              </div>
+              <div class="basket_button">
+                <button
+                  data-name="Funghi"
+                  data-img="funghi"
+                  onclick="addToBasket(this)"
+                >
+                  Add to basket
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="pizza">
+            <div class="pizza_image">
+              <img
+                src="../../static/img/diavola.png"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="pizza_text">
+              <p class="pizza_name">Diavola</p>
+              <p class="pizza_ingredients">
+                Tomato sauce, mozzarella, mushrooms & bell peppers
+              </p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="diavola_s"
+                  name="diavola_size"
+                  value="small"
+                />
+                <label for="diavola_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="diavola_m"
+                  name="diavola_size"
+                  value="medium"
+                />
+                <label for="diavola_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="diavola_l"
+                  name="diavola_size"
+                  value="large"
+                />
+                <label for="diavola_l"> Large</label><br />
+              </div>
+              <div class="basket_button">
+                <button
+                  data-name="Diavola"
+                  data-img="diavola"
+                  onclick="addToBasket(this)"
+                >
+                  Add to basket
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drinks_container">
+        <p class="underheader"><b>Order</b> your drink</p>
+        <hr />
+        <div class="drink_menu">
+          <div class="drink">
+            <div class="drink_image">
+              <img
+                src="../../static/img/coca_cola.png"
+                style="padding-top: 15px"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="drink_text">
+              <p class="drink_name">Coca Cola</p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="coca_cola_s"
+                  name="coca_cola_size"
+                  value="small"
+                />
+                <label for="coca_cola_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="coca_cola_m"
+                  name="coca_cola_size"
+                  value="medium"
+                />
+                <label for="coca_cola_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="coca_cola_l"
+                  name="coca_cola_size"
+                  value="large"
+                />
+                <label for="coca_cola_l"> Large</label><br />
+              </div>
+            </div>
+            <div class="basket_button_drink">
+              <button
+                data-name="Coca Cola"
+                data-img="coca_cola"
+                onclick="addToBasket(this)"
+              >
+                Add to basket
+              </button>
+            </div>
+          </div>
+          <div class="drink">
+            <div class="drink_image">
+              <img
+                src="../../static/img/water.png"
+                style="padding-top: 15px"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="drink_text">
+              <p class="drink_name">Water</p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="water_s"
+                  name="water_size"
+                  value="small"
+                />
+                <label for="water_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="water_m"
+                  name="water_size"
+                  value="medium"
+                />
+                <label for="water_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="water_l"
+                  name="water_size"
+                  value="large"
+                />
+                <label for="water_l"> Large</label><br />
+              </div>
+            </div>
+            <div class="basket_button_drink">
+              <button
+                data-name="Water"
+                data-img="water"
+                onclick="addToBasket(this)"
+              >
+                Add to basket
+              </button>
+            </div>
+          </div>
+          <div class="drink">
+            <div class="drink_image">
+              <img
+                src="../../static/img/apple_juice.jpg"
+                style="padding-top: 15px"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="drink_text">
+              <p class="drink_name">Apple Juice</p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="juice_s"
+                  name="juice_size"
+                  value="small"
+                />
+                <label for="fanta_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="juice_m"
+                  name="juice_size"
+                  value="medium"
+                />
+                <label for="fanta_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="juice_l"
+                  name="juice_size"
+                  value="large"
+                />
+                <label for="juice_l"> Large</label><br />
+              </div>
+            </div>
+            <div class="basket_button_drink">
+              <button
+                data-name="Fanta"
+                data-img="fanta"
+                onclick="addToBasket(this)"
+              >
+                Add to basket
+              </button>
+            </div>
+          </div>
+          <div class="drink">
+            <div class="drink_image">
+              <img
+                src="../../static/img/sprite.png"
+                style="padding-top: 15px"
+                width="250px"
+                height="250px"
+              />
+            </div>
+            <div class="drink_text">
+              <p class="drink_name">Sprite</p>
+              <div class="box_container">
+                <input
+                  type="radio"
+                  id="sprite_s"
+                  name="sprite_size"
+                  value="small"
+                />
+                <label for="sprite_s"> Small</label><br />
+                <input
+                  type="radio"
+                  id="sprite_m"
+                  name="sprite_size"
+                  value="medium"
+                />
+                <label for="sprite_m"> Medium</label><br />
+                <input
+                  type="radio"
+                  id="sprite_l"
+                  name="sprite_size"
+                  value="large"
+                />
+                <label for="sprite_l"> Large</label><br />
+              </div>
+            </div>
+            <div class="basket_button_drink">
+              <button
+                data-name="Sprite"
+                data-img="sprite"
+                onclick="addToBasket(this)"
+              >
+                Add to basket
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

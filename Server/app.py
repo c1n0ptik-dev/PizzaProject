@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import sqlite3
 from datetime import datetime
 import requests
@@ -80,7 +80,6 @@ def aboutus():
 def menu():
     return render_template('website/menu.html')
 
-
 @app.route('/basket', methods=['GET', 'POST'])
 def basket():
     if 'delete' in request.form:
@@ -106,6 +105,37 @@ def basket():
     print(items)
     return render_template("website/overview.html", data=items)
 
+def calculate_price(pizza_type, size):
+    prices = {
+        'Margarita': {'small': 5.00, 'medium': 7.00, 'large': 9.00},
+        'Tonno': {'small': 6.00, 'medium': 8.00, 'large': 10.00},
+        'Funghi': {'small': 5.50, 'medium': 7.50, 'large': 9.50},
+        'Diavola': {'small': 6.50, 'medium': 8.50, 'large': 10.50},
+        'Coca Cola': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
+        'Water': {'small': 1.00, 'medium': 1.50, 'large': 2.00},
+        'Fanta': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
+        'Sprite': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
+    }
+
+    return prices.get(pizza_type, {}).get(size, 0)
+
+@app.route('/add_to_basket', methods=['POST'])
+def add_to_basket():
+    # Get data from the request
+    data = request.get_json()
+    pizzaType = data.get('name')
+    img = data.get('image')
+    size = data.get('size')
+    price = calculate_price(pizzaType, size)  
+
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute('''INSERT INTO Basket (PizzaType, Img, Size, Price) VALUES (?, ?, ?, ?)''', (pizzaType, img, size, price))
+    
+    conn.commit()
+    conn.close()
+
+    return jsonify({'status': 'success', 'message': 'Item added to basket successfully!'}), 200
 
 
 @app.route('/basket_data', methods=[''])
@@ -126,6 +156,10 @@ def basket_data():
     conn.close()
 
     return redirect("/basket", code=302)
+
+
+
+
 
 @app.route('/checkout_order', methods=['POST'])
 def checkout_order():
