@@ -1,144 +1,143 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
 * {
-    padding: 0px;
-    margin: 0px;
-    border: none;
-  }
-  
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
 body {
-    font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 a {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 
 .header_container {
-    max-height: 100px;
-    display: flex;
-    font-size: 35px;
-    max-width: 1200px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 40px;
-}   
-.pizza_menu{
-    display: grid;
-    align-content: center;
-    grid-template-columns: 50% 50%;
-    width: 1000px;
-    margin-left: 375px;
-    align-content: space-evenly;
-    column-gap: 150px;
+  max-height: 100px;
+  display: flex;
+  font-size: 35px;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
 }
-.pizza{
-    margin: 50px;
-    display: flex;
-    border: 2px rgb(237, 237, 237) solid;
-    width: 550px;
+.pizza_menu {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 50% 50%;
+  width: 1000px;
+  margin-left: 375px;
+  align-content: space-evenly;
+  column-gap: 150px;
+}
+.pizza {
+  margin: 50px;
+  display: flex;
+  border: 2px rgb(237, 237, 237) solid;
+  width: 550px;
 }
 
-.drink{
-    margin: 50px;
-    display: flex;
-    border: 2px rgb(237, 237, 237) solid;
-    width: 550px;
-    justify-content: space-between;
+.drink {
+  margin: 50px;
+  display: flex;
+  border: 2px rgb(237, 237, 237) solid;
+  width: 550px;
+  justify-content: space-between;
 }
-.underheader{
-    font-size: 23px;
-    margin-left: 22%;
-    margin-top: 1%;
+.underheader {
+  font-size: 23px;
+  margin-left: 22%;
+  margin-top: 1%;
 }
 
 hr {
-    margin-top: 0.8%;
-    border: 0;
-    clear:both;
-    display:block;
-    width: 60%;
-    background-color:black;
-    height: 1.5px;
-    margin-left: 20%;
+  margin-top: 0.8%;
+  border: 0;
+  clear: both;
+  display: block;
+  width: 60%;
+  background-color: black;
+  height: 1.5px;
+  margin-left: 20%;
 }
 
-.pizza_name{
-    font-size: 30px;
-    padding-left: 5px;
-    padding-top:20px;
-    padding-bottom: 20px;
-    text-align: center;
+.pizza_name {
+  font-size: 30px;
+  padding-left: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.drink_name{
-    font-size: 30px;
-    padding-left: 5px;
-    padding-top:20px;
-    padding-bottom: 20px;
-    text-align: center;
-
+.drink_name {
+  font-size: 30px;
+  padding-left: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-button{
-    display: inline-block;
-    outline: 0;
-    cursor: pointer;
-    border-radius: 6px;
-    border: 2px solid #ff4742;
-    color: #fff;
-    background-color: #ff4742;
-    padding: 8px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
-    font-weight: 800;
-    font-size: 13px;
-    height: 34px;
-    width: 120px;
+button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #fff;
+  background-color: #ff4742;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 13px;
+  height: 34px;
+  width: 120px;
 }
-button:hover{
-    background: 0 0;
-    color: #ff4742;
+button:hover {
+  background: 0 0;
+  color: #ff4742;
 }
 p {
-    font-size: 17px;
+  font-size: 17px;
 }
 
-.pizza_ingredients{
-    color: rgb(100,100,100);
-    text-align: center;
-    padding-right: 8px;
+.pizza_ingredients {
+  color: rgb(100, 100, 100);
+  text-align: center;
+  padding-right: 8px;
 }
-.basket_button{
-    float: right;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    padding-right: 20px;
+.basket_button {
+  float: right;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-right: 20px;
 }
-.basket_button_drink{
-    float: right;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-top: 250px;
+.basket_button_drink {
+  float: right;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 250px;
 }
-.box_container{
-    padding-top: 20px;
-    font-size: 15px;    
-    padding-left: 40px;
-    inline-size: max-content;
+.box_container {
+  padding-top: 20px;
+  font-size: 15px;
+  padding-left: 40px;
+  inline-size: max-content;
 }
 .box_container input {
-    margin-top: 15px;
+  margin-top: 15px;
 }
-.drink_menu{
-    display: grid;
-    align-content: center;
-    grid-template-columns: 50% 50%;
-    width: 1000px;
-    margin-left: 375px;
-    align-content: space-evenly;
-    column-gap: 150px;
+.drink_menu {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 50% 50%;
+  width: 1000px;
+  margin-left: 375px;
+  align-content: space-evenly;
+  column-gap: 150px;
 }
