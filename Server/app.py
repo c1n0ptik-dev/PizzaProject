@@ -75,13 +75,16 @@ def cashier():
 def aboutus():
     return render_template('website/aboutus.html')
 
+
 @app.route("/workinghours")
 def workinghours():
     return render_template("website/work_hours.html")
 
+
 @app.route('/menu', methods=['GET'])
 def menu():
     return render_template('website/menu.html')
+
 
 @app.route('/basket', methods=['GET', 'POST'])
 def basket():
@@ -108,6 +111,7 @@ def basket():
     print(items)
     return render_template("website/overview.html", data=items)
 
+
 def calculate_price(pizza_type, size):
     prices = {
         'Margarita': {'small': 5.00, 'medium': 7.00, 'large': 9.00},
@@ -122,6 +126,7 @@ def calculate_price(pizza_type, size):
 
     return prices.get(pizza_type, {}).get(size, 0)
 
+
 @app.route('/add_to_basket', methods=['POST'])
 def add_to_basket():
     # Get data from the request
@@ -129,12 +134,13 @@ def add_to_basket():
     pizzaType = data.get('name')
     img = data.get('image')
     size = data.get('size')
-    price = calculate_price(pizzaType, size)  
+    price = calculate_price(pizzaType, size)
 
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
-    cursor.execute('''INSERT INTO Basket (PizzaType, Img, Size, Price) VALUES (?, ?, ?, ?)''', (pizzaType, img, size, price))
-    
+    cursor.execute('''INSERT INTO Basket (PizzaType, Img, Size, Price) VALUES (?, ?, ?, ?)''',
+                   (pizzaType, img, size, price))
+
     conn.commit()
     conn.close()
 
@@ -161,9 +167,6 @@ def basket_data():
     return redirect("/basket", code=302)
 
 
-
-
-
 @app.route('/checkout_order', methods=['POST'])
 def checkout_order():
     selected_time = request.form.get('pickup_time')
@@ -174,9 +177,9 @@ def checkout_order():
     basket_items = cursor.fetchall()
 
     for item in basket_items:
-        pizza_type = item[1]  #PizzaType
-        description = f"Size: {item[3]}"  
-        toppings = "No topping"  
+        pizza_type = item[1]  # PizzaType
+        description = f"Size: {item[3]}"
+        toppings = "No topping"
 
         cursor.execute(''' 
             INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
@@ -189,9 +192,11 @@ def checkout_order():
 
     return redirect("/success", code=302)
 
+
 @app.route("/success")
 def success():
     return render_template("website/success.html")
+
 
 @app.template_filter('sum_list')
 def sum_list(array):
