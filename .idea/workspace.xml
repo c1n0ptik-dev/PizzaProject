@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
@@ -14,6 +15,9 @@
       <change beforePath="$PROJECT_DIR$/Server/templates/website/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/templates/website/work_hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/work_hours.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="" />
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +47,10 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.index.html.executor": "Run",
+<<<<<<< HEAD
     "JavaScript Debug.menu.html.executor": "Run",
+=======
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
     "JavaScript Debug.orders.html.executor": "Run",
     "JavaScript Debug.overview.html.executor": "Run",
     "Python.app.executor": "Run",
@@ -53,7 +60,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "D:/python_projects/week_5/pythonProject",
+=======
+    "last_opened_file_path": "C:/Moje/fontys/semester 1/pizza_project/pizzaproject_6-1",
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,8 +92,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
-        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -104,9 +115,13 @@
       <workItem from="1730377530117" duration="3645000" />
       <workItem from="1730387833996" duration="5626000" />
       <workItem from="1730419833582" duration="620000" />
+<<<<<<< HEAD
       <workItem from="1730425944575" duration="53000" />
       <workItem from="1730473641641" duration="99000" />
       <workItem from="1730567904395" duration="1642000" />
+=======
+      <workItem from="1730566621015" duration="21000" />
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
     </task>
     <servers />
   </component>
