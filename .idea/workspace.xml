@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/aboutus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/overview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/templates/website/work_hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/templates/website/work_hours.html" afterDir="false" />
+    </list>
+=======
     <list default="true" id="260d9a0d-6eb7-4982-bfb0-fc04459dd0f0" name="Changes" comment="" />
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +43,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
@@ -51,6 +65,37 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.index.html.executor": "Run",
+<<<<<<< HEAD
+    "JavaScript Debug.menu.html.executor": "Run",
+=======
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
+    "JavaScript Debug.orders.html.executor": "Run",
+    "JavaScript Debug.overview.html.executor": "Run",
+    "Python.app.executor": "Run",
+    "Python.data_sender.executor": "Run",
+    "Python.sql.executor": "Run",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+<<<<<<< HEAD
+    "last_opened_file_path": "D:/python_projects/week_5/pythonProject",
+=======
+    "last_opened_file_path": "C:/Moje/fontys/semester 1/pizza_project/pizzaproject_6-1",
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> 5fa8ed0350afad5758ab2074c91c8452cea25c3a
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -94,8 +139,17 @@
       <workItem from="1730377530117" duration="3645000" />
       <workItem from="1730387833996" duration="5626000" />
       <workItem from="1730419833582" duration="620000" />
+<<<<<<< HEAD
+      <workItem from="1730425944575" duration="53000" />
+      <workItem from="1730473641641" duration="99000" />
+      <workItem from="1730567904395" duration="1642000" />
+=======
       <workItem from="1730566621015" duration="21000" />
+<<<<<<< HEAD
       <workItem from="1730566643510" duration="753000" />
+=======
+>>>>>>> d97d0dc460b934dac8e24bd04c89fef6e1595ecd
+>>>>>>> 5fa8ed0350afad5758ab2074c91c8452cea25c3a
     </task>
     <servers />
   </component>
@@ -103,6 +157,11 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
+=======
+    <SUITE FILE_PATH="coverage/pizzaproject_6_1$data_sender.coverage" NAME="data_sender Coverage Results" MODIFIED="1730309203861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+    <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730569335525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+>>>>>>> 5fa8ed0350afad5758ab2074c91c8452cea25c3a
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$sql.coverage" NAME="sql Coverage Results" MODIFIED="1730209019131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/databases" />
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$data_sender.coverage" NAME="data_sender Coverage Results" MODIFIED="1730309203861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
     <SUITE FILE_PATH="coverage/pizzaproject_6_1$app.coverage" NAME="app Coverage Results" MODIFIED="1730566750585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
