@@ -18,7 +18,7 @@ def get_data_from_db(table_name):
     conn.close()
 
     return rows
-
+    
 
 def arduino():
     ser = serial.Serial("COM3", baudrate=9600, timeout=1)
