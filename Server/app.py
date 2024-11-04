@@ -165,9 +165,9 @@ def calculate_price(pizza_type, size):
         'Tonno': {'small': 6.00, 'medium': 8.00, 'large': 10.00},
         'Funghi': {'small': 5.50, 'medium': 7.50, 'large': 9.50},
         'Diavola': {'small': 6.50, 'medium': 8.50, 'large': 10.50},
-        'Coca Cola': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
+        'Coca-Cola': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
         'Water': {'small': 1.00, 'medium': 1.50, 'large': 2.00},
-        'Fanta': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
+        'Juice': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
         'Sprite': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
     }
     return prices.get(pizza_type, {}).get(size, 0)

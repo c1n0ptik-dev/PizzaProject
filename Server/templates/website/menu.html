@@ -16,8 +16,9 @@
 
         let size;
         const pizzaSizeOptions = document.getElementsByName(
-          pizzaName.toLowerCase() + "_size"
+          pizzaName.toLowerCase().replace(/[-\s]/g, "_") + "_size"
         );
+
         for (const option of pizzaSizeOptions) {
           if (option.checked) {
             size = option.value;
@@ -62,9 +63,14 @@
       <div class="header_container">
         <div><a href="{{ url_for('aboutus') }}">About Us</a></div>
         <div><a href="{{ url_for('menu') }}">Menu</a></div>
-        <div><a href="{{ url_for('main') }}">
-          <img src="../../static/img/front_logo.png" class="main_logo" alt="" />
-        </a>
+        <div>
+          <a href="{{ url_for('main') }}">
+            <img
+              src="../../static/img/front_logo.png"
+              class="main_logo"
+              alt=""
+            />
+          </a>
         </div>
         <div><a href="{{ url_for('basket') }}">Basket</a></div>
         <div><a href="{{ url_for('workinghours') }}">Working hours</a></div>
@@ -309,7 +315,7 @@
             </div>
             <div class="basket_button_drink">
               <button
-                data-name="Coca Cola"
+                data-name="Coca-Cola"
                 data-img="coca_cola"
                 onclick="addToBasket(this)"
               >
@@ -342,7 +348,7 @@
                   name="water_size"
                   value="medium"
                 />
-                <label for="water_m"> Medium</label><br />
+                <label for="water_m">Small</label><br />
                 <input
                   type="radio"
                   id="water_l"
@@ -365,7 +371,7 @@
           <div class="drink">
             <div class="drink_image">
               <img
-                src="../../static/img/apple_juice.jpg"
+                src="../../static/img/apple_juice.png"
                 style="padding-top: 15px"
                 width="250px"
                 height="250px"
@@ -380,14 +386,14 @@
                   name="juice_size"
                   value="small"
                 />
-                <label for="fanta_s"> Small</label><br />
+                <label for="juice_s"> Small</label><br />
                 <input
                   type="radio"
                   id="juice_m"
                   name="juice_size"
                   value="medium"
                 />
-                <label for="fanta_m"> Medium</label><br />
+                <label for="juice_m"> Medium</label><br />
                 <input
                   type="radio"
                   id="juice_l"
@@ -399,8 +405,8 @@
             </div>
             <div class="basket_button_drink">
               <button
-                data-name="Fanta"
-                data-img="fanta"
+                data-name="Juice"
+                data-img="apple_juice"
                 onclick="addToBasket(this)"
               >
                 Add to basket
@@ -455,34 +461,34 @@
         </div>
       </div>
     </section>
-    
+
     <footer>
       <div class="footer_container">
         <div>
           <p><b>About us</b></p>
-          <a href="#">About us</a><br>
-          <a href="#">Our history</a><br>
-          <a href="#">Our values</a><br>
-          <a href="#">Enviroment</a><br>
+          <a href="#">About us</a><br />
+          <a href="#">Our history</a><br />
+          <a href="#">Our values</a><br />
+          <a href="#">Enviroment</a><br />
         </div>
         <div>
           <p><b>M&L pizza</b></p>
-          <a href="#">Order online</a><br>
-          <a href="#">Menu</a><br>
-          <a href="#">Offers</a><br>
-          <a href="#">News</a><br>
+          <a href="#">Order online</a><br />
+          <a href="#">Menu</a><br />
+          <a href="#">Offers</a><br />
+          <a href="#">News</a><br />
         </div>
         <div>
           <p><b>Social Media</b></p>
-          <a href="#">Instagram</a><br>
-          <a href="#">Tiktok</a><br>
-          <a href="#">Twitter</a><br>
+          <a href="#">Instagram</a><br />
+          <a href="#">Tiktok</a><br />
+          <a href="#">Twitter</a><br />
         </div>
         <div>
           <p><b>Customer service</b></p>
-          <a href="#">FAQ</a><br>
-          <a href="#">Contact</a><br>
-          <a href="#">Locations</a><br>
+          <a href="#">FAQ</a><br />
+          <a href="#">Contact</a><br />
+          <a href="#">Locations</a><br />
         </div>
       </div>
     </footer>

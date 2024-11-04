@@ -28,13 +28,15 @@ a {
 }
 .pizza_menu {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  column-gap: 50px;
+  row-gap: 50px;
+  justify-content: center;
   align-content: center;
-  grid-template-columns: 50% 50%;
-  width: 1000px;
-  margin-left: 375px;
-  align-content: space-evenly;
-  column-gap: 150px;
 }
+
 .pizza {
   margin: 50px;
   display: flex;
@@ -134,14 +136,16 @@ p {
 }
 .drink_menu {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  column-gap: 50px;
+  row-gap: 50px;
+  justify-content: center;
   align-content: center;
-  grid-template-columns: 50% 50%;
-  width: 1000px;
-  margin-left: 375px;
-  align-content: space-evenly;
-  column-gap: 150px;
 }
-.footer_container{
+
+.footer_container {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
@@ -152,9 +156,9 @@ p {
   border-width: 90%;
   border-top: 1px lightgray solid;
 }
-.footer_container p{
+.footer_container p {
   line-height: 3.5;
 }
-.footer_container a{
+.footer_container a {
   line-height: 1.8;
 }
