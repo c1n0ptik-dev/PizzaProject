@@ -25,7 +25,6 @@ def get_next_order_id():
     return max_order_id + 1
 
 
-
 def calculate_pickup(pickup_time):
     selected_time_str = pickup_time
 
@@ -185,9 +184,8 @@ def add_to_basket():
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
 
-    # Check and assign a new order ID only if it is not already in the session
     if 'current_order_id' not in session:
-        session['current_order_id'] = get_next_order_id()  # Get the next order ID for the current basket
+        session['current_order_id'] = get_next_order_id()
 
     current_order_id = session['current_order_id']
 
@@ -198,7 +196,6 @@ def add_to_basket():
     conn.commit()
     conn.close()
     return jsonify({'status': 'success', 'message': 'Item added to basket successfully!'}), 200
-
 
 
 @app.route('/basket_data', methods=[''])
@@ -232,7 +229,7 @@ def checkout_order():
     cursor.execute("SELECT * FROM Basket")
     basket_items = cursor.fetchall()
 
-    new_order_id = get_next_order_id()  # Always generate a new order ID for the current order
+    new_order_id = get_next_order_id()
 
     for item in basket_items:
         pizza_type = item[2]
@@ -249,7 +246,6 @@ def checkout_order():
     conn.close()
 
     return redirect("/success", code=302)
-
 
 
 @app.route("/success")
