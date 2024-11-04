@@ -1,39 +1,66 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import sqlite3
-from datetime import datetime
-import requests
 import time
 import serial
+import queue
+import threading
+from datetime import datetime
 
 app = Flask(__name__, template_folder='templates')
+
+order_queue = queue.Queue()
+order_times = []
+ser = None
+
+
+def initialize_serial():
+    global ser
+    if ser is None or not ser.is_open:
+        ser = serial.Serial("COM3", baudrate=9600, timeout=1)
+        time.sleep(2)
+    return ser
+
+
+def add_order(cook_time):
+    order_queue.put(cook_time)
+    order_times.append(cook_time)
+    print(f"Order added with cook time {cook_time}s. Queue size: {order_queue.qsize()}.")
+
+def delete_items(orderid):
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM Orders WHERE OrderId=?", (orderid,))
+    conn.commit()
+
+def process_orders():
+    global ser
+    ser = initialize_serial()
+    total_cook_time = 0
+
+    while True:
+        if not order_queue.empty():
+            cook_time = order_queue.get()
+            total_cook_time += cook_time
+            ser.write("RedLight\n".encode())
+            print("Sent RedLight command to start cooking.")
+            time.sleep(cook_time)
+            ser.write("GreenLight\n".encode())
+            print("Sent GreenLight command. Order ready.")
+            order_times.pop(0)
+
+            if order_queue.empty():
+                total_cook_time = 0
+
+        time.sleep(0.5)
 
 
 def get_data_from_db(table_name):
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
-
     cursor.execute(f"SELECT * FROM {table_name}")
     rows = cursor.fetchall()
-
     conn.close()
-
     return rows
-
-
-def arduino():
-    ser = serial.Serial("COM3", baudrate=9600, timeout=1)
-    time.sleep(2)
-
-    ser.write("StartSequence\n".encode())
-
-    while True:
-        if ser.in_waiting > 0:
-            response = ser.readline().decode().strip()
-
-            if response == "Sequence finished":
-                break
-
-    ser.close()
 
 
 @app.route('/')
@@ -45,20 +72,13 @@ def main():
 def orders():
     if 'start' in request.form:
         start_button = request.form.get('start')
-
         if start_button == 'pressed':
-            arduino()
-
-        return redirect("/orders", code=302)
-
-    elif 'ready' in request.form:
-        start_button = request.form.get('ready')
-        if start_button == 'pressed':
+            add_order(10)
+            order_thread = threading.Thread(target=process_orders, daemon=True)
+            order_thread.start()
+            time.sleep(10)
             orderid = request.form.get('item_id')
-            conn = sqlite3.connect('database/database.db')
-            cursor = conn.cursor()
-            cursor.execute("DELETE FROM Orders WHERE OrderId=?", (orderid,))
-            conn.commit()
+            delete_items(orderid)
 
         return redirect("/orders", code=302)
 
@@ -102,7 +122,6 @@ def basket():
         if delete_button == 'pressed':
             conn = sqlite3.connect('database/database.db')
             cursor = conn.cursor()
-
             cursor.execute("""DELETE FROM Basket; """)
             conn.commit()
             conn.close()
@@ -123,13 +142,11 @@ def calculate_price(pizza_type, size):
         'Fanta': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
         'Sprite': {'small': 1.50, 'medium': 2.00, 'large': 2.50},
     }
-
     return prices.get(pizza_type, {}).get(size, 0)
 
 
 @app.route('/add_to_basket', methods=['POST'])
 def add_to_basket():
-    # Get data from the request
     data = request.get_json()
     pizzaType = data.get('name')
     img = data.get('image')
@@ -140,10 +157,8 @@ def add_to_basket():
     cursor = conn.cursor()
     cursor.execute('''INSERT INTO Basket (PizzaType, Img, Size, Price) VALUES (?, ?, ?, ?)''',
                    (pizzaType, img, size, price))
-
     conn.commit()
     conn.close()
-
     return jsonify({'status': 'success', 'message': 'Item added to basket successfully!'}), 200
 
 
@@ -160,10 +175,8 @@ def basket_data():
         INSERT INTO Basket (OrderType, Img, Size, Price)
         VALUES (?, ?, ?, ?)
     ''', (pizzaType, img, size, price))
-
     conn.commit()
     conn.close()
-
     return redirect("/basket", code=302)
 
 
@@ -177,10 +190,9 @@ def checkout_order():
     basket_items = cursor.fetchall()
 
     for item in basket_items:
-        pizza_type = item[1]  # PizzaType
+        pizza_type = item[1]
         description = f"Size: {item[3]}"
         toppings = "No topping"
-
         cursor.execute(''' 
             INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
             VALUES (?, ?, ?, ?)
@@ -189,7 +201,6 @@ def checkout_order():
     cursor.execute("DELETE FROM Basket")
     conn.commit()
     conn.close()
-
     return redirect("/success", code=302)
 
 
@@ -213,7 +224,6 @@ def send_data():
     pizza = request.form.get('pizza')
     additional_info = request.form.get('additional_info')
     toppings = request.form.get('toppings')
-
     order_time = datetime.now().strftime('%H:%M:%S')
 
     conn = sqlite3.connect('database/database.db')
@@ -225,9 +235,7 @@ def send_data():
 
     conn.commit()
     conn.close()
-
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
-
     return redirect("/cashier", code=302)
 
 
