@@ -1,16 +1,44 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session
 import sqlite3
 import time
 import serial
 import queue
 import threading
-from datetime import datetime
+from datetime import datetime, timedelta
 
 app = Flask(__name__, template_folder='templates')
+app.secret_key = '123123'
 
 order_queue = queue.Queue()
 order_times = []
 ser = None
+order_id = 0
+
+
+def get_next_order_id():
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(order_id) FROM Orders")
+    max_order = cursor.fetchone()
+    max_order_id = max_order[0] if max_order[0] is not None else 0
+    conn.close()
+    return max_order_id + 1
+
+
+
+def calculate_pickup(pickup_time):
+    selected_time_str = pickup_time
+
+    hours, minutes, seconds = map(int, selected_time_str.split(':'))
+    selected_timedelta = timedelta(hours=hours, minutes=minutes, seconds=seconds)
+
+    # Get the current time
+    current_time = datetime.now()
+
+    # Calculate the future pickup time
+    future_pickup_time = current_time + selected_timedelta
+    future_pickup_time_str = future_pickup_time.strftime('%H:%M:%S')
+    return future_pickup_time_str
 
 
 def initialize_serial():
@@ -26,11 +54,6 @@ def add_order(cook_time):
     order_times.append(cook_time)
     print(f"Order added with cook time {cook_time}s. Queue size: {order_queue.qsize()}.")
 
-def delete_items(orderid):
-    conn = sqlite3.connect('database/database.db')
-    cursor = conn.cursor()
-    cursor.execute("DELETE FROM Orders WHERE OrderId=?", (orderid,))
-    conn.commit()
 
 def process_orders():
     global ser
@@ -76,9 +99,15 @@ def orders():
             add_order(10)
             order_thread = threading.Thread(target=process_orders, daemon=True)
             order_thread.start()
-            time.sleep(10)
+
+    elif 'ready' in request.form:
+        ready_button = request.form.get('ready')
+        if ready_button == 'pressed':
             orderid = request.form.get('item_id')
-            delete_items(orderid)
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Orders WHERE OrderId=?", (orderid,))
+            conn.commit()
 
         return redirect("/orders", code=302)
 
@@ -155,11 +184,21 @@ def add_to_basket():
 
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
-    cursor.execute('''INSERT INTO Basket (PizzaType, Img, Size, Price) VALUES (?, ?, ?, ?)''',
-                   (pizzaType, img, size, price))
+
+    # Check and assign a new order ID only if it is not already in the session
+    if 'current_order_id' not in session:
+        session['current_order_id'] = get_next_order_id()  # Get the next order ID for the current basket
+
+    current_order_id = session['current_order_id']
+
+    cursor.execute('''INSERT INTO Basket (OrderId, PizzaType, Img, Size, Price)
+                      VALUES (?, ?, ?, ?, ?)''',
+                   (current_order_id, pizzaType, img, size, price))
+
     conn.commit()
     conn.close()
     return jsonify({'status': 'success', 'message': 'Item added to basket successfully!'}), 200
+
 
 
 @app.route('/basket_data', methods=[''])
@@ -172,9 +211,9 @@ def basket_data():
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO Basket (OrderType, Img, Size, Price)
-        VALUES (?, ?, ?, ?)
-    ''', (pizzaType, img, size, price))
+        INSERT INTO Basket (OrderId, OrderType, Img, Size, Price)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (orderId, pizzaType, img, size, price))
     conn.commit()
     conn.close()
     return redirect("/basket", code=302)
@@ -183,25 +222,34 @@ def basket_data():
 @app.route('/checkout_order', methods=['POST'])
 def checkout_order():
     selected_time = request.form.get('pickup_time')
+    if selected_time == "ASAP":
+        time = datetime.now().strftime('%H:%M:%S')
+    else:
+        time = calculate_pickup(selected_time)
 
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Basket")
     basket_items = cursor.fetchall()
 
+    new_order_id = get_next_order_id()  # Always generate a new order ID for the current order
+
     for item in basket_items:
-        pizza_type = item[1]
-        description = f"Size: {item[3]}"
+        pizza_type = item[2]
+        description = f"Size: {item[4]}"
         toppings = "No topping"
+        time_t = f'Pickup time: {time}'
         cursor.execute(''' 
-            INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
-            VALUES (?, ?, ?, ?)
-        ''', (pizza_type, description, toppings, selected_time))
+            INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (new_order_id, pizza_type, description, toppings, time_t))
 
     cursor.execute("DELETE FROM Basket")
     conn.commit()
     conn.close()
+
     return redirect("/success", code=302)
+
 
 
 @app.route("/success")
@@ -228,10 +276,20 @@ def send_data():
 
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
+
+    cursor.execute("SELECT MAX(order_id) FROM Orders")
+    max_order = cursor.fetchone()
+    max_order_id = max_order[0] if max_order[0] is not None else 0
+    print(max_order)
+    if max_order_id is None:
+        orderId = 1
+    else:
+        orderId = int(max_order_id) + 1
+
     cursor.execute(''' 
-        INSERT INTO Orders (PizzaType, Description, Toppings, OrderTime)
-        VALUES (?, ?, ?, ?)
-    ''', (pizza, additional_info, toppings, order_time))
+        INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (orderId, pizza, additional_info, toppings, order_time))
 
     conn.commit()
     conn.close()
