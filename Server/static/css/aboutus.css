@@ -181,3 +181,20 @@ html {
   padding-top: 25px;
   padding-inline: 400px;
 }
+.footer_container{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-inline: 15%;
+  border-width: 90%;
+  border-top: 1px lightgray solid;
+}
+.footer_container p{
+  line-height: 3.5;
+}
+.footer_container a{
+  line-height: 1.8;
+}

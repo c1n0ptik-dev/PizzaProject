@@ -14,24 +14,24 @@
     <header>
       <div class="header_container">
         <div>
-          <a href="/aboutus">About Us</a>
+          <a href="{{ url_for('aboutus') }}">About Us</a>
         </div>
         <div>
-          <a href="/menu">Menu</a>
+          <a href="{{ url_for('menu') }}">Menu</a>
         </div>
         <div>
-          <a href="/"
+            <a href="{{ url_for('main') }}"
             ><img
-              src="../../static/img/front_logo.png"
-              class="main_logo"
-              alt=""
-          /></a>
+                    src="../../static/img/front_logo.png"
+                    class="main_logo"
+                    alt=""
+            /></a>
         </div>
         <div>
-          <a href="/basket">Basket</a>
+          <a href="{{ url_for('basket') }}">Basket</a>
         </div>
         <div>
-          <a href="/workinghours">Work hours</a>
+          <a href="{{ url_for('workinghours') }}">Work hours</a>
         </div>
       </div>
     </header>

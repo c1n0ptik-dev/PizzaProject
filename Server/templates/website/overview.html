@@ -14,17 +14,17 @@
     <!-- Header Section -->
     <header>
       <div class="header_container">
-        <div><a href="aboutus.html">About Us</a></div>
-        <div><a href="menu.html">Menu</a></div>
+        <div><a href="{{ url_for('aboutus') }}">About Us</a></div>
+        <div><a href="{{ url_for('menu') }}">Menu</a></div>
         <div>
-          <a href="index.html"><img
+          <a href="{{ url_for('main') }}"><img
             src="../../static/img/front_logo.png"
             class="main_logo"
             alt="Logo"
           /></a>
         </div>
-        <div><a href="overview.html">Basket</a></div>
-        <div><a href="work_hours.html">Work hour</a></div>
+        <div><a href="{{ url_for('basket') }}">Basket</a></div>
+        <div><a href="{{ url_for('workinghours') }}">Work hour</a></div>
       </div>
     </header>
 
@@ -39,20 +39,20 @@
         </form>
       </div>
       {% if data != [] %} {% set prices = [] %} {% for row in data %} {% if
-      prices.append(row[4]) %} {% endif %}
+      prices.append(row[5]) %} {% endif %}
       <div class="Cart-Items">
         <div class="image-box">
-          <img src="../../static/img/{{ row[2] }}.png" style="height: 120px" />
+          <img src="../../static/img/{{ row[3] }}.png" style="height: 120px" />
         </div>
         <div class="about">
-          <h1 class="title">{{ row[1] }}</h1>
-          <h3 class="subtitle">{{ row[3] }}</h3>
+          <h1 class="title">{{ row[2] }}</h1>
+          <h3 class="subtitle">{{ row[4] }}</h3>
         </div>
         <div class="counter"></div>
         <div class="prices">
-          <div class="amount">${{ row[4] }}</div>
+          <div class="amount">€{{ row[5] }}</div>
           <form method="post">
-            <input type="hidden" name="item_delete_id" value="{{ row[0] }}" />
+            <input type="hidden" name="item_delete_id" value="{{ row[1] }}" />
             <button
               class="rem-button"
               type="submit"
@@ -74,7 +74,7 @@
             <div class="items">{{ prices | length }} items</div>
           </div>
           {% set num_array = prices | to_int_list %}
-          <div class="total-amount">{{ num_array | sum }}</div>
+          <div class="total-amount">€{{ num_array | sum }}</div>
         </div>
         <form action="/checkout_order" method="post">
           <div class="checkout_div">
@@ -88,13 +88,13 @@
                 required
               />
               <label for="ASAP">ASAP</label>
-              <input type="radio" id="1hour" name="pickup_time" value="1hour" />
+              <input type="radio" id="1hour" name="pickup_time" value="01:00:00" />
               <label for="1hour">1 hour</label>
               <input
                 type="radio"
                 id="15hour"
                 name="pickup_time"
-                value="15hour"
+                value="01:30:00"
               />
               <label for="15hour">1.5 hour</label>
             </div>
