@@ -31,10 +31,8 @@ def calculate_pickup(pickup_time):
     hours, minutes, seconds = map(int, selected_time_str.split(':'))
     selected_timedelta = timedelta(hours=hours, minutes=minutes, seconds=seconds)
 
-    # Get the current time
     current_time = datetime.now()
 
-    # Calculate the future pickup time
     future_pickup_time = current_time + selected_timedelta
     future_pickup_time_str = future_pickup_time.strftime('%H:%M:%S')
     return future_pickup_time_str
@@ -273,17 +271,11 @@ def send_data():
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
 
-    cursor.execute("SELECT MAX(order_id) FROM Orders")
-    max_order = cursor.fetchone()
-    max_order_id = max_order[0] if max_order[0] is not None else 0
-    print(max_order)
-    if max_order_id is None:
-        orderId = 1
-    else:
-        orderId = int(max_order_id) + 1
+    if 'current_order_id' not in session:
+        session['current_order_id'] = get_next_order_id()
 
     cursor.execute(''' 
-        INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
+        INSERT INTO Orders_basket (OrderId, PizzaType, Description, Toppings, OrderTime)
         VALUES (?, ?, ?, ?, ?)
     ''', (orderId, pizza, additional_info, toppings, order_time))
 
