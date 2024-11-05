@@ -10,8 +10,8 @@ body {
   justify-content: left;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f2f5;
-  background-image: url("../img/backkground.jpg");
+  background-color: #f1f1f1;
+  /* background-image: url("../img/backkground.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -50,7 +50,7 @@ textarea {
   border-radius: 6px;
   border: 1px solid #ddd;
   font-size: 1em;
-  color: #333;
+  color: #000;
   background-color: #fafafa;
   transition: border-color 0.3s;
 }
@@ -71,7 +71,7 @@ button[type="submit"] {
   width: 100%;
   padding: 12px;
   margin-top: 25px;
-  background-color: #007bff;
+  background-color: #d81b24;
   color: white;
   font-size: 1.1em;
   font-weight: bold;
@@ -82,7 +82,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #861b20;
 }
 
 button[type="submit"]:active {
@@ -91,4 +91,3 @@ button[type="submit"]:active {
 .additional_info {
   height: 300px;
 }
-
