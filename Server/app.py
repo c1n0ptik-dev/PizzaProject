@@ -81,7 +81,7 @@ def get_data_from_db(table_name):
     rows = cursor.fetchall()
     conn.close()
     return rows
-    
+
 
 @app.route('/')
 def main():
@@ -283,6 +283,30 @@ def send_data():
     conn.close()
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
     return redirect("/cashier", code=302)
+
+
+@app.route('/cashier_orders', methods=['POST'])
+def cashier_orders():
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Orders_basket")
+    basket_items = cursor.fetchall()
+
+    new_order_id = get_next_order_id()
+
+    for item in basket_items:
+        pizza_type = item[2]
+        description = item[3]
+        toppings = item[4]
+        time_t = item[5]
+        cursor.execute(''' 
+            INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (new_order_id, pizza_type, description, toppings, time_t))
+
+    cursor.execute("DELETE FROM Orders_basket")
+    conn.commit()
+    conn.close()
 
 
 if __name__ == "__main__":
