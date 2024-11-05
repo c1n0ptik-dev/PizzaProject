@@ -21,8 +21,10 @@ void loop() {
     if (command == "StartSequence") {
       Serial.println("Sequence started");
 
-
       digitalWrite(redLedPin, HIGH);
+      tone(buzzer, 1000);
+      delay(500);
+      noTone(buzzer);
 
       delay(delayTime);
 
@@ -30,10 +32,22 @@ void loop() {
       digitalWrite(greenLedPin, HIGH);
 
       tone(buzzer, 1000);
-      delay(500);
+      delay(200);
       noTone(buzzer);
 
-      delay(4000);
+      delay(100);
+
+      tone(buzzer, 1000);
+      delay(200);
+      noTone(buzzer);
+
+      delay(100);
+      
+      tone(buzzer, 1000);
+      delay(200);
+      noTone(buzzer);
+
+      delay(2000);
 
       digitalWrite(greenLedPin, LOW);
       Serial.println("Sequence finished");
