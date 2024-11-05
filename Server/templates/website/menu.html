@@ -10,6 +10,10 @@
     />
     <link rel="stylesheet" href="../../static/css/menu.css" />
     <script>
+      function removeSelection(selector) {
+        let ele = document.getElementsByName(selector);
+        for (let i = 0; i < ele.length; i++) ele[i].checked = false;
+      }
       function addToBasket(button) {
         const pizzaName = button.getAttribute("data-name");
         const img = button.getAttribute("data-img");
@@ -119,6 +123,9 @@
                 <label for="margharita_l"> Large</label><br />
               </div>
               <div class="basket_button">
+                <button onclick="removeSelection('margarita_size')">
+                  Reset
+                </button>
                 <button
                   data-name="Margarita"
                   data-img="margharita"
@@ -167,6 +174,7 @@
                 <label for="tonno_l"> Large</label><br />
               </div>
               <div class="basket_button">
+                <button onclick="removeSelection('tonno_size')">Reset</button>
                 <button
                   data-name="Tonno"
                   data-img="tonno"
@@ -214,6 +222,7 @@
                 <label for="funghi_l"> Large</label><br />
               </div>
               <div class="basket_button">
+                <button onclick="removeSelection('funghi_size')">Reset</button>
                 <button
                   data-name="Funghi"
                   data-img="funghi"
@@ -261,6 +270,7 @@
                 <label for="diavola_l"> Large</label><br />
               </div>
               <div class="basket_button">
+                <button onclick="removeSelection('diavola_size')">Reset</button>
                 <button
                   data-name="Diavola"
                   data-img="diavola"
@@ -280,40 +290,46 @@
         <div class="drink_menu">
           <div class="drink">
             <div class="drink_image">
-              <img
-                src="../../static/img/coca_cola.png"
-                style="padding-top: 15px"
-                width="250px"
-                height="250px"
-              />
+              <div>
+                <img
+                  src="../../static/img/coca_cola.png"
+                  style="padding-top: 15px"
+                  width="250px"
+                  height="250px"
+                />
+              </div>
             </div>
             <div class="drink_text">
               <p class="drink_name">Coca Cola</p>
-              <div class="box_container">
+              <div class="box_container box_container_drink">
                 <input
                   type="radio"
                   id="coca_cola_s"
                   name="coca_cola_size"
                   value="small"
                 />
-                <label for="coca_cola_s"> Small</label><br />
+                <label for="coca_cola_s"> Small</label>
                 <input
                   type="radio"
                   id="coca_cola_m"
                   name="coca_cola_size"
                   value="medium"
                 />
-                <label for="coca_cola_m"> Medium</label><br />
+                <label for="coca_cola_m"> Medium</label>
                 <input
                   type="radio"
                   id="coca_cola_l"
                   name="coca_cola_size"
                   value="large"
                 />
-                <label for="coca_cola_l"> Large</label><br />
+                <label for="coca_cola_l"> Large</label>
               </div>
             </div>
-            <div class="basket_button_drink">
+            <div
+              class="basket_button_drink"
+              style="display: flex; justify-items: center"
+            >
+              <button onclick="removeSelection('coca_cola_size')">Reset</button>
               <button
                 data-name="Coca-Cola"
                 data-img="coca_cola"
@@ -334,7 +350,7 @@
             </div>
             <div class="drink_text">
               <p class="drink_name">Water</p>
-              <div class="box_container">
+              <div class="box_container box_container_drink">
                 <input
                   type="radio"
                   id="water_s"
@@ -359,6 +375,8 @@
               </div>
             </div>
             <div class="basket_button_drink">
+              <button onclick="removeSelection('water_size')">Reset</button>
+
               <button
                 data-name="Water"
                 data-img="water"
@@ -379,7 +397,7 @@
             </div>
             <div class="drink_text">
               <p class="drink_name">Apple Juice</p>
-              <div class="box_container">
+              <div class="box_container box_container_drink">
                 <input
                   type="radio"
                   id="juice_s"
@@ -404,6 +422,8 @@
               </div>
             </div>
             <div class="basket_button_drink">
+              <button onclick="removeSelection('juice_size')">Reset</button>
+
               <button
                 data-name="Juice"
                 data-img="apple_juice"
@@ -424,7 +444,7 @@
             </div>
             <div class="drink_text">
               <p class="drink_name">Sprite</p>
-              <div class="box_container">
+              <div class="box_container box_container_drink">
                 <input
                   type="radio"
                   id="sprite_s"
@@ -449,6 +469,8 @@
               </div>
             </div>
             <div class="basket_button_drink">
+              <button onclick="removeSelection('sprite_size')">Reset</button>
+
               <button
                 data-name="Sprite"
                 data-img="sprite"
