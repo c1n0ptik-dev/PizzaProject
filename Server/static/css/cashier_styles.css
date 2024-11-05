@@ -11,7 +11,6 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f1f1f1;
-  /* background-image: url("../img/backkground.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -95,4 +94,149 @@ button[type="submit"]:active {
 }
 .additional_info {
   height: 300px;
+}
+
+/* Cart Section Styles */
+/* Adjusted Cart Section Styles */
+.CartContainer {
+  width: 100%; /* Ensure it takes the full width */
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px 0; /* Adjust margin as needed */
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2f3841;
+}
+
+.Action {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  border-bottom: 1px solid #e44c4c;
+}
+
+.Cart-Items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.image-box {
+  width: 15%;
+  text-align: center;
+}
+
+.about {
+  /* width: 24%; */
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #202020;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #909090;
+}
+
+.prices {
+  text-align: right;
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: 600;
+  color: #202020;
+}
+
+.remove {
+  font-size: 14px;
+  color: #f1f1f1;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+}
+
+.checkout {
+  text-align: right;
+  padding-top: 20px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Subtotal {
+  font-size: 22px;
+  font-weight: 700;
+  color: #202020;
+}
+
+.items {
+  font-size: 16px;
+  color: #909090;
+}
+
+.total-amount {
+  font-size: 32px;
+  font-weight: 700;
+  color: #202020;
+}
+
+.button {
+  background-color: #a3282e;
+  width: 50%;
+  height: 65px;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.checkout_div p {
+  font-size: 30px;
+}
+
+.checkout_div label {
+  font-size: 25px;
+}
+
+/* Ensure that the displayed_orders section stretches full width */
+.displayed_orders {
+  width: 100%; /* Ensure it uses the full width of its parent */
+}
+.form-section {
+  height: 800px;
+}
+.topping {
+  font-size: 20px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+.add_order {
+  margin-top: 56px;
 }

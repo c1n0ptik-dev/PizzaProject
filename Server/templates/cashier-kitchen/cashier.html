@@ -21,12 +21,11 @@
           <option value="margherita">Margherita</option>
           <option value="tonno">Tonno</option>
           <option value="funghi">Funghi</option>
-          <option value="diavola`">Diavola</option>
+          <option value="diavola">Diavola</option>
           <option value="coca_cola">Coca cola</option>
           <option value="water">Water</option>
           <option value="apple_juice">Apple juice</option>
           <option value="sprite">Sprite</option>
-
         </select>
         <label for="additional-info">Additional Information:</label>
         <textarea
@@ -45,23 +44,101 @@
           <option value="green_peppers">Green Peppers</option>
           <option value="bacon">Bacon</option>
         </select>
-        <button type="submit">Add the order</button>
+        <div class="add_order">
+          <button type="submit">Add the order</button>
+        </div>
       </form>
-      <form></form>
     </section>
+
     <section class="form-section">
       <div
         style="
-          width: 45%;
+          width: 100%;
           background-color: white;
-          height: 645px;
-          margin-left: 100px;
+          height: auto;
+          margin-left: 0;
         "
       >
         <h2 style="text-align: left">Ordered</h2>
-        <div class="dsiplayed_orders"></div>
+        <div class="displayed_orders" style="overflow-y: scroll; height: 535px">
+          <div class="CartContainer">
+            <!-- Sample Cart Item 1 -->
+            <div class="Cart-Items">
+              <div class="about">
+                <h1 class="title" style="display: inline">Margherita Pizza</h1>
+                <h3 class="subtitle" style="display: inline">
+                  Classic pizza with tomato and cheese
+                </h3>
+                <p class="topping">Olives, extra cheeeese</p>
+              </div>
+              <div class="counter"></div>
+              <div class="prices">
+                <div class="amount">€10.00</div>
+                <form method="post">
+                  <input type="hidden" name="item_delete_id" value="1" />
+                  <button
+                    class="rem-button"
+                    type="submit"
+                    name="delete"
+                    value="pressed"
+                  >
+                    <div class="remove"><u>Remove</u></div>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Sample Cart Item 2 -->
+            <div class="Cart-Items">
+              <div class="about">
+                <h1 class="title" style="display: inline">Tonno Pizza</h1>
+                <h3 class="subtitle" style="display: inline">
+                  Tuna with onion and tomato
+                </h3>
+                <p class="topping">Olives, extra cheeeese</p>
+              </div>
+              <div class="counter"></div>
+              <div class="prices">
+                <div class="amount">€12.00</div>
+                <form method="post">
+                  <input type="hidden" name="item_delete_id" value="2" />
+                  <button
+                    class="rem-button"
+                    type="submit"
+                    name="delete"
+                    value="pressed"
+                  >
+                    <div class="remove"><u>Remove</u></div>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Checkout Section -->
+
+            <!-- No items message -->
+            <!-- Uncomment if needed
+            <div style="display: flex; justify-items: center; text-align: center">
+              <div>
+                <p>No items in basket</p>
+              </div>
+            </div>
+            -->
+          </div>
+        </div>
+        <div class="checkout">
+          <div class="total">
+            <div>
+              <div class="Subtotal">Final price</div>
+              <div class="items"></div>
+            </div>
+            <div class="total-amount">€22.00</div>
+          </div>
+        </div>
+        <div class="submit_order_btn">
+          <button class="submit_btn" type="submit">Submit the order</button>
+        </div>
       </div>
-      <button type="submit">Submit the order</button>
     </section>
   </body>
 </html>
