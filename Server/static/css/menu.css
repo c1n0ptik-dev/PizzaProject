@@ -45,11 +45,14 @@ a {
 }
 
 .drink {
-  margin: 50px;
   display: flex;
-  border: 2px rgb(237, 237, 237) solid;
-  width: 550px;
+  flex-direction: column;
   justify-content: space-between;
+  width: 550px;
+  border: 2px solid rgb(237, 237, 237);
+  margin: 50px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .underheader {
   font-size: 23px;
@@ -120,20 +123,41 @@ p {
   padding-right: 20px;
 }
 .basket_button_drink {
-  float: right;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-top: 250px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
 }
+
+.drink_image {
+  display: flex;
+  justify-content: center;
+}
+
 .box_container {
   padding-top: 20px;
   font-size: 15px;
   padding-left: 40px;
-  inline-size: max-content;
+  /* inline-size: max-content; */
 }
 .box_container input {
   margin-top: 15px;
 }
+
+.box_container_drink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+.box_container_drink input {
+  margin-top: 0;
+}
+.box_container_drink label {
+  margin: 0;
+}
+
 .drink_menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
