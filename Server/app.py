@@ -112,9 +112,19 @@ def orders():
     return render_template('cashier-kitchen/orders.html', data=orders)
 
 
-@app.route('/cashier', methods=['GET'])
+@app.route('/cashier', methods=['GET', 'POST'])
 def cashier():
-    return render_template('cashier-kitchen/cashier.html')
+    if 'delete' in request.form:
+        delete_button = request.form.get('delete')
+        if delete_button == 'pressed':
+            itemid = request.form.get('item_delete_id')
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Orders_basket WHERE Id=?", (itemid,))
+            conn.commit()
+
+    items = get_data_from_db("Orders_basket")
+    return render_template("cashier-kitchen/cashier.html", data=items)
 
 
 @app.route('/aboutus')
@@ -265,19 +275,20 @@ def to_int_list(string_list):
 def send_data():
     pizza = request.form.get('pizza')
     additional_info = request.form.get('additional_info')
+    size = request.form.get('size')
     toppings = request.form.get('toppings')
     order_time = datetime.now().strftime('%H:%M:%S')
-
+    price = calculate_price(pizza, size)
+    print(price, pizza)
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
 
-    if 'current_order_id' not in session:
-        session['current_order_id'] = get_next_order_id()
+    new_order_id = 0
 
     cursor.execute(''' 
-        INSERT INTO Orders_basket (OrderId, PizzaType, Description, Toppings, OrderTime)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (orderId, pizza, additional_info, toppings, order_time))
+        INSERT INTO Orders_basket (OrderId, PizzaType, Description, Toppings, OrderTime, Price, size)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ''', (new_order_id, pizza, additional_info, toppings, order_time, price, size))
 
     conn.commit()
     conn.close()
@@ -303,10 +314,11 @@ def cashier_orders():
             INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
             VALUES (?, ?, ?, ?, ?)
         ''', (new_order_id, pizza_type, description, toppings, time_t))
-
     cursor.execute("DELETE FROM Orders_basket")
     conn.commit()
     conn.close()
+
+    return redirect("/cashier", code=302)
 
 
 if __name__ == "__main__":

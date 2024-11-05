@@ -62,7 +62,7 @@ textarea:focus {
 
 textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 80px;
 }
 
 button[type="submit"] {
@@ -230,7 +230,7 @@ button[type="submit"]:active {
   width: 100%; /* Ensure it uses the full width of its parent */
 }
 .form-section {
-  height: 800px;
+  height: 820px;
 }
 .topping {
   font-size: 20px;
@@ -238,5 +238,9 @@ button[type="submit"]:active {
   font-weight: 500;
 }
 .add_order {
-  margin-top: 56px;
+  margin-top: -15px;
+  padding-bottom: 50px;
+}
+.right_form{
+  min-height: 820px;
 }

@@ -12,20 +12,31 @@
     <title>Pizza Order Form</title>
   </head>
   <body>
-    <section class="form-section">
+  <script>
+    function refresher(){
+      location.reload();
+    }
+  </script>
+    <section class="form-section right_form">
       <h2>Pizza Order Form</h2>
       <form action="/send_data" method="post">
         <label for="pizza">Choose an item:</label>
         <select id="pizza" name="pizza" required>
           <option value="">Select</option>
-          <option value="margherita">Margherita</option>
-          <option value="tonno">Tonno</option>
-          <option value="funghi">Funghi</option>
-          <option value="diavola">Diavola</option>
-          <option value="coca_cola">Coca cola</option>
-          <option value="water">Water</option>
-          <option value="apple_juice">Apple juice</option>
-          <option value="sprite">Sprite</option>
+          <option value="Margarita">Margherita</option>
+          <option value="Tonno">Tonno</option>
+          <option value="Funghi">Funghi</option>
+          <option value="Diavola">Diavola</option>
+          <option value="Coca-Cola">Coca cola</option>
+          <option value="Water">Water</option>
+          <option value="Juice">Apple juice</option>
+          <option value="Sprite">Sprite</option>
+        </select>
+        <select name="size" required>
+          <option value="">Size</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
         </select>
         <label for="additional-info">Additional Information:</label>
         <textarea
@@ -45,7 +56,7 @@
           <option value="bacon">Bacon</option>
         </select>
         <div class="add_order">
-          <button type="submit">Add the order</button>
+          <button type="submit" onclick="refresher()">Add the order</button>
         </div>
       </form>
     </section>
@@ -62,57 +73,34 @@
         <h2 style="text-align: left">Ordered</h2>
         <div class="displayed_orders" style="overflow-y: scroll; height: 535px">
           <div class="CartContainer">
-            <!-- Sample Cart Item 1 -->
+            {% set prices = [] %}
+            {% for rows in data %}
+            {% if prices.append(rows[6]) %} {% endif %}
             <div class="Cart-Items">
               <div class="about">
-                <h1 class="title" style="display: inline">Margherita Pizza</h1>
+                <h1 class="title" style="display: inline">{{ rows[2] }}</h1>
                 <h3 class="subtitle" style="display: inline">
-                  Classic pizza with tomato and cheese
+                  {{ rows[3] }}
                 </h3>
-                <p class="topping">Olives, extra cheeeese</p>
+                <p class="topping">{{ rows[4] }}</p>
               </div>
               <div class="counter"></div>
               <div class="prices">
-                <div class="amount">€10.00</div>
+                <div class="amount">{{ rows[6] }}</div>
                 <form method="post">
-                  <input type="hidden" name="item_delete_id" value="1" />
+                  <input type="hidden" name="item_delete_id" value="{{ rows[0] }}" />
                   <button
                     class="rem-button"
                     type="submit"
                     name="delete"
                     value="pressed"
                   >
-                    <div class="remove"><u>Remove</u></div>
+                    <div class="remove" onclick="refresher()"><u>Remove</u></div>
                   </button>
                 </form>
               </div>
             </div>
-
-            <!-- Sample Cart Item 2 -->
-            <div class="Cart-Items">
-              <div class="about">
-                <h1 class="title" style="display: inline">Tonno Pizza</h1>
-                <h3 class="subtitle" style="display: inline">
-                  Tuna with onion and tomato
-                </h3>
-                <p class="topping">Olives, extra cheeeese</p>
-              </div>
-              <div class="counter"></div>
-              <div class="prices">
-                <div class="amount">€12.00</div>
-                <form method="post">
-                  <input type="hidden" name="item_delete_id" value="2" />
-                  <button
-                    class="rem-button"
-                    type="submit"
-                    name="delete"
-                    value="pressed"
-                  >
-                    <div class="remove"><u>Remove</u></div>
-                  </button>
-                </form>
-              </div>
-            </div>
+            {% endfor %}
 
             <!-- Checkout Section -->
 
@@ -132,11 +120,14 @@
               <div class="Subtotal">Final price</div>
               <div class="items"></div>
             </div>
-            <div class="total-amount">€22.00</div>
+            {% set num_array = prices | to_int_list %}
+            <div class="total-amount">€{{ num_array | sum }}</div>
           </div>
         </div>
         <div class="submit_order_btn">
+          <form action="/cashier_orders" method="post">
           <button class="submit_btn" type="submit">Submit the order</button>
+          </form>
         </div>
       </div>
     </section>
