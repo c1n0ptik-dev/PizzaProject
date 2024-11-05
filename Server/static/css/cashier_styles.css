@@ -72,6 +72,7 @@ button[type="submit"] {
   padding: 12px;
   margin-top: 25px;
   background-color: #d81b24;
+  background-color: #ff4742;
   color: white;
   font-size: 1.1em;
   font-weight: bold;
@@ -83,6 +84,10 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #861b20;
+  color: #ff4742;
+  background-color: white;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
 }
 
 button[type="submit"]:active {
