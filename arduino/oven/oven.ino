@@ -19,9 +19,41 @@ void loop() {
 
     if (command == "GreenLight") {
       Serial.println("Sequence started");
+<<<<<<< HEAD
       tone(buzzer, 1000);
       digitalWrite(greenLedPin, HIGH);
       delay(1000);
+=======
+
+      digitalWrite(redLedPin, HIGH);
+      tone(buzzer, 1000);
+      delay(500);
+      noTone(buzzer);
+
+      delay(delayTime);
+
+      digitalWrite(redLedPin, LOW);
+      digitalWrite(greenLedPin, HIGH);
+
+      tone(buzzer, 1000);
+      delay(200);
+      noTone(buzzer);
+
+      delay(100);
+
+      tone(buzzer, 1000);
+      delay(200);
+      noTone(buzzer);
+
+      delay(100);
+      
+      tone(buzzer, 1000);
+      delay(200);
+      noTone(buzzer);
+
+      delay(2000);
+
+>>>>>>> f8174f98dc156bc572893e8a9008dac6500051b6
       digitalWrite(greenLedPin, LOW);
       noTone(buzzer);
     }
