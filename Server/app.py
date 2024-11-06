@@ -111,9 +111,6 @@ def orders():
             order_thread = threading.Thread(target=process_orders, daemon=True)
             order_thread.start()
 
-
-
-
     elif 'ready' in request.form:
         ready_button = request.form.get('ready')
         if ready_button == 'pressed':
