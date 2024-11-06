@@ -77,7 +77,7 @@ def process_orders():
 
 
 def change_color(id):
-    sleep(12)
+    sleep(11)
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute("UPDATE Orders SET Color = ? WHERE OrderId = ?", ('#acacad', id))
@@ -110,7 +110,6 @@ def orders():
             add_order(10)
             order_thread = threading.Thread(target=process_orders, daemon=True)
             order_thread.start()
-
 
     elif 'ready' in request.form:
         ready_button = request.form.get('ready')
