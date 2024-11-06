@@ -77,7 +77,7 @@ def process_orders():
 
 
 def change_color(id):
-    sleep(11)
+    sleep(12)
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute("UPDATE Orders SET Color = ? WHERE OrderId = ?", ('#acacad', id))
@@ -92,7 +92,7 @@ def get_data_from_db(table_name):
     rows = cursor.fetchall()
     conn.close()
     return rows
-    
+
 
 @app.route('/')
 def main():
@@ -111,6 +111,7 @@ def orders():
             order_thread = threading.Thread(target=process_orders, daemon=True)
             order_thread.start()
 
+
     elif 'ready' in request.form:
         ready_button = request.form.get('ready')
         if ready_button == 'pressed':
@@ -126,9 +127,19 @@ def orders():
     return render_template('cashier-kitchen/orders.html', data=orders)
 
 
-@app.route('/cashier', methods=['GET'])
+@app.route('/cashier', methods=['GET', 'POST'])
 def cashier():
-    return render_template('cashier-kitchen/cashier.html')
+    if 'delete' in request.form:
+        delete_button = request.form.get('delete')
+        if delete_button == 'pressed':
+            itemid = request.form.get('item_delete_id')
+            conn = sqlite3.connect('database/database.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM Orders_basket WHERE Id=?", (itemid,))
+            conn.commit()
+
+    items = get_data_from_db("Orders_basket")
+    return render_template("cashier-kitchen/cashier.html", data=items)
 
 
 @app.route('/aboutus')
@@ -279,23 +290,49 @@ def to_int_list(string_list):
 def send_data():
     pizza = request.form.get('pizza')
     additional_info = request.form.get('additional_info')
+    size = request.form.get('size')
     toppings = request.form.get('toppings')
     order_time = datetime.now().strftime('%H:%M:%S')
-
+    price = calculate_price(pizza, size)
+    print(price, pizza)
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
 
-    if 'current_order_id' not in session:
-        session['current_order_id'] = get_next_order_id()
+    new_order_id = 0
 
     cursor.execute(''' 
-        INSERT INTO Orders_basket (OrderId, PizzaType, Description, Toppings, OrderTime)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (orderId, pizza, additional_info, toppings, order_time))
+        INSERT INTO Orders_basket (OrderId, PizzaType, Description, Toppings, OrderTime, Price, size)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ''', (new_order_id, pizza, additional_info, toppings, order_time, price, size))
 
     conn.commit()
     conn.close()
     print(f"Pizza: {pizza}, Additional Info: {additional_info}, Toppings: {toppings}")
+    return redirect("/cashier", code=302)
+
+
+@app.route('/cashier_orders', methods=['POST'])
+def cashier_orders():
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Orders_basket")
+    basket_items = cursor.fetchall()
+
+    new_order_id = get_next_order_id()
+
+    for item in basket_items:
+        pizza_type = item[2]
+        description = item[3]
+        toppings = item[4]
+        time_t = item[5]
+        cursor.execute(''' 
+            INSERT INTO Orders (order_id, PizzaType, Description, Toppings, OrderTime)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (new_order_id, pizza_type, description, toppings, time_t))
+    cursor.execute("DELETE FROM Orders_basket")
+    conn.commit()
+    conn.close()
+
     return redirect("/cashier", code=302)
 
 
