@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, jsonify, session
 import sqlite3
 import time
+from time import sleep
 import serial
 import queue
 import threading
+from threading import Thread
 from datetime import datetime, timedelta
 
 app = Flask(__name__, template_folder='templates')
@@ -74,6 +76,15 @@ def process_orders():
         time.sleep(0.5)
 
 
+def change_color(id):
+    sleep(11)
+    conn = sqlite3.connect('database/database.db')
+    cursor = conn.cursor()
+    cursor.execute("UPDATE Orders SET Color = ? WHERE OrderId = ?", ('#acacad', id))
+    conn.commit()
+    conn.close()
+
+
 def get_data_from_db(table_name):
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
@@ -92,10 +103,16 @@ def main():
 def orders():
     if 'start' in request.form:
         start_button = request.form.get('start')
+        order_id = request.form.get('itemid')
         if start_button == 'pressed':
+            change_color_thread = Thread(target=change_color, args=(order_id,))
+            change_color_thread.start()
             add_order(10)
             order_thread = threading.Thread(target=process_orders, daemon=True)
             order_thread.start()
+
+
+
 
     elif 'ready' in request.form:
         ready_button = request.form.get('ready')
