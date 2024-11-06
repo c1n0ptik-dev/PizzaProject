@@ -77,7 +77,7 @@ def process_orders():
 
 
 def change_color(id):
-    sleep(12)
+    sleep(11)
     conn = sqlite3.connect('database/database.db')
     cursor = conn.cursor()
     cursor.execute("UPDATE Orders SET Color = ? WHERE OrderId = ?", ('#acacad', id))
