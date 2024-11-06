@@ -14,7 +14,7 @@
         let ele = document.getElementsByName(selector);
         for (let i = 0; i < ele.length; i++) ele[i].checked = false;
       }
-      function addToBasket(button) {
+      function addToBasket(button, selector) {
         const pizzaName = button.getAttribute("data-name");
         const img = button.getAttribute("data-img");
 
@@ -59,6 +59,9 @@
           .catch((error) => {
             console.log(error);
           });
+
+        let ele = document.getElementsByName(selector);
+        for (let i = 0; i < ele.length; i++) ele[i].checked = false;
       }
     </script>
   </head>
@@ -129,7 +132,7 @@
                 <button
                   data-name="Margarita"
                   data-img="margharita"
-                  onclick="addToBasket(this)"
+                  onclick="addToBasket(this, 'margarita_size')"
                 >
                   Add to basket
                 </button>
@@ -178,7 +181,7 @@
                 <button
                   data-name="Tonno"
                   data-img="tonno"
-                  onclick="addToBasket(this)"
+                  onclick="addToBasket(this, 'tonno_size')"
                 >
                   Add to basket
                 </button>
@@ -226,7 +229,7 @@
                 <button
                   data-name="Funghi"
                   data-img="funghi"
-                  onclick="addToBasket(this)"
+                  onclick="addToBasket(this, 'funghi_size')"
                 >
                   Add to basket
                 </button>
@@ -274,7 +277,7 @@
                 <button
                   data-name="Diavola"
                   data-img="diavola"
-                  onclick="addToBasket(this)"
+                  onclick="addToBasket(this, 'diavola_size')"
                 >
                   Add to basket
                 </button>
@@ -333,7 +336,7 @@
               <button
                 data-name="Coca-Cola"
                 data-img="coca_cola"
-                onclick="addToBasket(this)"
+                onclick="addToBasket(this, 'coca_cola_size')"
               >
                 Add to basket
               </button>
@@ -342,7 +345,7 @@
           <div class="drink">
             <div class="drink_image">
               <img
-                src="../../static/img/water.png"
+                src="../../static/img/Water.png"
                 style="padding-top: 15px"
                 width="250px"
                 height="250px"
@@ -364,7 +367,7 @@
                   name="water_size"
                   value="medium"
                 />
-                <label for="water_m">Small</label><br />
+                <label for="water_m">Medium</label><br />
                 <input
                   type="radio"
                   id="water_l"
@@ -380,7 +383,7 @@
               <button
                 data-name="Water"
                 data-img="water"
-                onclick="addToBasket(this)"
+                onclick="addToBasket(this, 'water_size')"
               >
                 Add to basket
               </button>
@@ -427,7 +430,7 @@
               <button
                 data-name="Juice"
                 data-img="apple_juice"
-                onclick="addToBasket(this)"
+                onclick="addToBasket(this, 'juice_size')"
               >
                 Add to basket
               </button>
@@ -474,7 +477,7 @@
               <button
                 data-name="Sprite"
                 data-img="sprite"
-                onclick="addToBasket(this)"
+                onclick="addToBasket(this, 'sprite_size')"
               >
                 Add to basket
               </button>
